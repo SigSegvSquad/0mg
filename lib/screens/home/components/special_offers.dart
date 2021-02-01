@@ -42,7 +42,7 @@ class SpecialOffers extends StatelessWidget {
                 },
               ),
               SpecialOfferCard(
-                image: "assets/images/personal_care.png",
+                image: "assets/images/personalcare.jpg",
                 category: "Lifestyle",
                 numOfBrands: 12,
                 press: () {
