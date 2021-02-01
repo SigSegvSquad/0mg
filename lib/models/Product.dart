@@ -128,7 +128,7 @@ List<Product> demoProducts = [
     isPopular: true,
   ),
   Product(
-    id: 6,
+    id: 7,
     images: [
       "assets/images/Cetirizine.jpg",
     ],
