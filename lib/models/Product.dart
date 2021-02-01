@@ -175,7 +175,7 @@ List<Product> suplimentPro = [
   Product(
     id: 2,
     images: [
-      "assets/images/Aarovit_syrup.jpg",
+      "assets/images/cipro (1).jpg",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -193,7 +193,7 @@ List<Product> suplimentPro = [
   Product(
     id: 3,
     images: [
-      "assets/images/Aarovit_syrup.jpg",
+      "assets/images/calcium.jpg",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -211,7 +211,7 @@ List<Product> suplimentPro = [
   Product(
     id: 4,
     images: [
-      "assets/images/Aarovit_syrup.jpg",
+      "assets/images/CITICOLINE 250 MG.jpg",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -220,6 +220,204 @@ List<Product> suplimentPro = [
       Colors.white,
     ],
     title: "CITICOLINE 250 MG",
+    price: 108.00,
+    description: "null",
+    rating: 4.8,
+    isFavourite: true,
+    isPopular: true,
+  ),
+  Product(
+    id: 5,
+    images: [
+      "assets/images/PARACETAMOL 250MG SUSP.jpg",
+    ],
+    colors: [
+      Color(0xFFF6625E),
+      Color(0xFF836DB8),
+      Color(0xFFDECB9C),
+      Colors.white,
+    ],
+    title: "PARACETAMOL 250MG SUSP",
+    price: 108.00,
+    description: "null",
+    rating: 4.8,
+    isFavourite: true,
+    isPopular: true,
+  ),
+  Product(
+    id: 6,
+    images: [
+      "assets/images/PANTOPROZOLE -40MG.jpg",
+    ],
+    colors: [
+      Color(0xFFF6625E),
+      Color(0xFF836DB8),
+      Color(0xFFDECB9C),
+      Colors.white,
+    ],
+    title: "PANTOPROZOLE -40MG",
+    price: 108.00,
+    description: "null",
+    rating: 4.8,
+    isFavourite: true,
+    isPopular: true,
+  ),
+  Product(
+    id: 7,
+    images: [
+      "assets/images/TRANEXAMIC ACID 500MG.jpg",
+    ],
+    colors: [
+      Color(0xFFF6625E),
+      Color(0xFF836DB8),
+      Color(0xFFDECB9C),
+      Colors.white,
+    ],
+    title: "TRANEXAMIC ACID 500MG",
+    price: 108.00,
+    description: "null",
+    rating: 4.8,
+    isFavourite: true,
+    isPopular: true,
+  ),
+  Product(
+    id: 8,
+    images: [
+      "assets/images/PAIN RELEIF SPRAY.jpg",
+    ],
+    colors: [
+      Color(0xFFF6625E),
+      Color(0xFF836DB8),
+      Color(0xFFDECB9C),
+      Colors.white,
+    ],
+    title: "PAIN RELEIF SPRAY",
+    price: 108.00,
+    description: "null",
+    rating: 4.8,
+    isFavourite: true,
+    isPopular: true,
+  ),
+  Product(
+    id: 9,
+    images: [
+      "assets/images/TRAMAROL HYDROCHLORIDE INJ.jpg",
+    ],
+    colors: [
+      Color(0xFFF6625E),
+      Color(0xFF836DB8),
+      Color(0xFFDECB9C),
+      Colors.white,
+    ],
+    title: "TRAMAROL HYDROCHLORIDE INJ",
+    price: 108.00,
+    description: "null",
+    rating: 4.8,
+    isFavourite: true,
+    isPopular: true,
+  ),
+  Product(
+    id: 10,
+    images: [
+      "assets/images/VITAMIN - MINERAL - IRON MALT.jpg",
+    ],
+    colors: [
+      Color(0xFFF6625E),
+      Color(0xFF836DB8),
+      Color(0xFFDECB9C),
+      Colors.white,
+    ],
+    title: "VITAMIN - MINERAL - IRON MALT",
+    price: 108.00,
+    description: "null",
+    rating: 4.8,
+    isFavourite: true,
+    isPopular: true,
+  ),
+  Product(
+    id: 11,
+    images: [
+      "assets/images/VITAMIN - MINERAL - IRON MALT.jpg",
+    ],
+    colors: [
+      Color(0xFFF6625E),
+      Color(0xFF836DB8),
+      Color(0xFFDECB9C),
+      Colors.white,
+    ],
+    title: "PROTINE SUPPLEMENT WITH VIT",
+    price: 108.00,
+    description: "null",
+    rating: 4.8,
+    isFavourite: true,
+    isPopular: true,
+  ),
+  Product(
+    id: 12,
+    images: [
+      "assets/images/OFLOXACIN INFUSION.jpg",
+    ],
+    colors: [
+      Color(0xFFF6625E),
+      Color(0xFF836DB8),
+      Color(0xFFDECB9C),
+      Colors.white,
+    ],
+    title: "OFLOXACIN INFUSION 0.2% W/V",
+    price: 108.00,
+    description: "null",
+    rating: 4.8,
+    isFavourite: true,
+    isPopular: true,
+  ),
+  Product(
+    id: 13,
+    images: [
+      "assets/images/ONDASETRON.jpg",
+    ],
+    colors: [
+      Color(0xFFF6625E),
+      Color(0xFF836DB8),
+      Color(0xFFDECB9C),
+      Colors.white,
+    ],
+    title: "ONDASETRON",
+    price: 108.00,
+    description: "null",
+    rating: 4.8,
+    isFavourite: true,
+    isPopular: true,
+  ),
+  Product(
+    id: 14,
+    images: [
+      "assets/images/NIMESULIDE 100MG.jpg",
+    ],
+    colors: [
+      Color(0xFFF6625E),
+      Color(0xFF836DB8),
+      Color(0xFFDECB9C),
+      Colors.white,
+    ],
+    title: "NIMESULIDE 100MG",
+    price: 108.00,
+    description: "null",
+    rating: 4.8,
+    isFavourite: true,
+    isPopular: true,
+  ),
+  Product(
+    id: 15,
+    images: [
+      "assets/images/MULTIVITAMINS + FOLIC + MINERALS.jpg",
+    ],
+    colors: [
+      Color(0xFFF6625E),
+      Color(0xFF836DB8),
+      Color(0xFFDECB9C),
+      Colors.white,
+    ],
+    title: "MULTIVITAMINS + FOLIC + MINERALS",
     price: 108.00,
     description: "null",
     rating: 4.8,
