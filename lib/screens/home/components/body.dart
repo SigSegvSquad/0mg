@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/screens/home/components/search_field.dart';
 
 import '../../../size_config.dart';
-import 'categories.dart';
+import 'hot_bar.dart';
 import 'discount_banner.dart';
 import 'home_header.dart';
 import 'popular_product.dart';
-import 'special_offers.dart';
+import 'categories.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -21,8 +21,8 @@ class Body extends StatelessWidget {
             SearchField(),
             SizedBox(height: getProportionateScreenWidth(5)),
             DiscountBanner(),
+            HotBar(),
             Categories(),
-            SpecialOffers(),
             SizedBox(height: getProportionateScreenWidth(30)),
             PopularProducts(),
             SizedBox(height: getProportionateScreenWidth(30)),
