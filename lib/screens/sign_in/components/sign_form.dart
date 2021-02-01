@@ -78,7 +78,7 @@ class _SignFormState extends State<SignForm> {
                 _formKey.currentState.save();
                 // if all are valid then go to success screen
                 KeyboardUtil.hideKeyboard(context);
-                Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+                Navigator.pushNamed(context, HomeScreen.routeName);
               }
             },
           ),
@@ -99,16 +99,16 @@ class _SignFormState extends State<SignForm> {
         }
         return null;
       },
-      validator: (value) {
-        if (value.isEmpty) {
-          addError(error: kPassNullError);
-          return "";
-        } else if (value.length < 8) {
-          addError(error: kShortPassError);
-          return "";
-        }
-        return null;
-      },
+      // validator: (value) {
+      //   if (value.isEmpty) {
+      //     addError(error: kPassNullError);
+      //     return "";
+      //   } else if (value.length < 8) {
+      //     addError(error: kShortPassError);
+      //     return "";
+      //   }
+      //   return null;
+      // },
       decoration: InputDecoration(
         labelText: "Password",
         hintText: "Enter your password",
@@ -132,16 +132,16 @@ class _SignFormState extends State<SignForm> {
         }
         return null;
       },
-      validator: (value) {
-        if (value.isEmpty) {
-          addError(error: kEmailNullError);
-          return "";
-        } else if (!emailValidatorRegExp.hasMatch(value)) {
-          addError(error: kInvalidEmailError);
-          return "";
-        }
-        return null;
-      },
+      // validator: (value) {
+      //   if (value.isEmpty) {
+      //     addError(error: kEmailNullError);
+      //     return "";
+      //   } else if (!emailValidatorRegExp.hasMatch(value)) {
+      //     addError(error: kInvalidEmailError);
+      //     return "";
+      //   }
+      //   return null;
+      // },
       decoration: InputDecoration(
         labelText: "Email",
         hintText: "Enter your email",
