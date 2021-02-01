@@ -14,9 +14,9 @@ class SpecialOffers extends StatelessWidget {
       children: [
         Padding(
           padding:
-              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
           child: SectionTitle(
-            title: "Special for you",
+            title: "Categories",
             press: () {},
           ),
         ),
@@ -26,14 +26,26 @@ class SpecialOffers extends StatelessWidget {
           child: Row(
             children: [
               SpecialOfferCard(
-                image: "assets/images/Image Banner 2.png",
-                category: "Smartphone",
+                image: "assets/images/supplements.png",
+                category: "Supplements",
                 numOfBrands: 18,
                 press: () {},
               ),
               SpecialOfferCard(
-                image: "assets/images/Image Banner 3.png",
-                category: "Fashion",
+                image: "assets/images/ayurveda.png",
+                category: "Ayurveda",
+                numOfBrands: 9,
+                press: () {},
+              ),
+              SpecialOfferCard(
+                image: "assets/images/personal_care.png",
+                category: "Lifestyle",
+                numOfBrands: 12,
+                press: () {},
+              ),
+              SpecialOfferCard(
+                image: "assets/images/other_medicines.jpg",
+                category: "Other",
                 numOfBrands: 24,
                 press: () {},
               ),
@@ -66,8 +78,8 @@ class SpecialOfferCard extends StatelessWidget {
       child: GestureDetector(
         onTap: press,
         child: SizedBox(
-          width: getProportionateScreenWidth(242),
-          height: getProportionateScreenWidth(100),
+          width: getProportionateScreenWidth(120),
+          height: getProportionateScreenWidth(120),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Stack(
@@ -82,7 +94,7 @@ class SpecialOfferCard extends StatelessWidget {
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       colors: [
-                        Color(0xFF343434).withOpacity(0.4),
+                        Color(0xFF343434).withOpacity(0.5),
                         Color(0xFF343434).withOpacity(0.15),
                       ],
                     ),
@@ -100,7 +112,7 @@ class SpecialOfferCard extends StatelessWidget {
                         TextSpan(
                           text: "$category\n",
                           style: TextStyle(
-                            fontSize: getProportionateScreenWidth(18),
+                            fontSize: getProportionateScreenWidth(16),
                             fontWeight: FontWeight.bold,
                           ),
                         ),
