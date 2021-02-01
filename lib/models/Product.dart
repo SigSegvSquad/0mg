@@ -127,4 +127,97 @@ List<Product> demoProducts = [
     isFavourite: true,
     isPopular: true,
   ),
+  Product(
+    id: 6,
+    images: [
+      "assets/images/Cetirizine.jpg",
+    ],
+    colors: [
+      Color(0xFFF6625E),
+      Color(0xFF836DB8),
+      Color(0xFFDECB9C),
+      Colors.white,
+    ],
+    title: "Cetirizine Tablet",
+    price: 36.55,
+    description: "Cetirizine is an antihistamine used to relieve allergy symptoms such as watery eyes, runny nose, itching eyes/nose, sneezing, hives, and itching. It works by blocking a certain natural substance (histamine) that your body makes during an allergic reaction",
+    rating: 4.1,
+    isFavourite: true,
+    isPopular: true,
+  ),
+];
+
+List<Product> suplimentPro = [
+Product(
+id: 1,
+images: [
+"assets/images/Aarovit_syrup.jpg",
+],
+colors: [
+Color(0xFFF6625E),
+Color(0xFF836DB8),
+Color(0xFFDECB9C),
+Colors.white,
+],
+title: "CHOCOLATE / VANILA / KESAR BADAM",
+price: 108.00,
+description: "null",
+rating: 4.8,
+isFavourite: true,
+isPopular: true,
+),
+Product(
+id: 2,
+images: [
+"assets/images/Aarovit_syrup.jpg",
+],
+colors: [
+Color(0xFFF6625E),
+Color(0xFF836DB8),
+Color(0xFFDECB9C),
+Colors.white,
+],
+title: "CIPROFLOXACIN 500MG",
+price: 108.00,
+description: "null",
+rating: 4.8,
+isFavourite: true,
+isPopular: true,
+),
+Product(
+id: 3,
+images: [
+"assets/images/Aarovit_syrup.jpg",
+],
+colors: [
+Color(0xFFF6625E),
+Color(0xFF836DB8),
+Color(0xFFDECB9C),
+Colors.white,
+],
+title: "CALCIUM 500 MG + VIT D3",
+price: 108.00,
+description: "null",
+rating: 4.8,
+isFavourite: true,
+isPopular: true,
+),
+Product(
+id: 4,
+images: [
+"assets/images/Aarovit_syrup.jpg",
+],
+colors: [
+Color(0xFFF6625E),
+Color(0xFF836DB8),
+Color(0xFFDECB9C),
+Colors.white,
+],
+title: "CITICOLINE 250 MG",
+price: 108.00,
+description: "null",
+rating: 4.8,
+isFavourite: true,
+isPopular: true,
+),
 ];
