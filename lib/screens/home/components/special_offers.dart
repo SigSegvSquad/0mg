@@ -26,7 +26,15 @@ class SpecialOffers extends StatelessWidget {
           child: Row(
             children: [
               SpecialOfferCard(
-                image: "assets/images/supplements.png",
+                image: "assets/images/tablets.jpg",
+                category: "General",
+                numOfBrands: 35,
+                press: () {
+                  Navigator.pushNamed(context, ProductListScreen.routeName);
+                },
+              ),
+              SpecialOfferCard(
+                image: "assets/images/supplements.jpeg",
                 category: "Supplements",
                 numOfBrands: 18,
                 press: () {
@@ -34,7 +42,7 @@ class SpecialOffers extends StatelessWidget {
                 },
               ),
               SpecialOfferCard(
-                image: "assets/images/ayurveda.png",
+                image: "assets/images/ayurveda.jpeg",
                 category: "Ayurveda",
                 numOfBrands: 9,
                 press: () {
