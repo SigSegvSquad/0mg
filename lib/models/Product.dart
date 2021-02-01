@@ -40,7 +40,7 @@ List<Product> demoProducts = [
     description:
         "Aarovit Syrup contains Multiminerals and Multivitamins as active ingredients. Aarovit Syrup is useful for the normal and proper growth of the body. During pregnancy, childhood, and illness body requires more vitamins and minerals than usual. Aarovit fulfills all the requirements of the body for the proper functioning.",
     rating: 4.8,
-    isFavourite: true,
+    isFavourite: false,
     isPopular: true,
   ),
   Product(
@@ -77,7 +77,7 @@ List<Product> demoProducts = [
     description:
         "AMENOL TABLETS   RANGE OF ACTION: Effective in Amenorrhoea. Also useful in Dysmenorrhoea. Helpful in Uterus Chlorosis",
     rating: 4.1,
-    isFavourite: true,
+    isFavourite: false,
     isPopular: true,
   ),
   Product(
@@ -129,13 +129,13 @@ List<Product> demoProducts = [
     description:
         "Cetirizine is an antihistamine used to relieve allergy symptoms such as watery eyes, runny nose, itching eyes/nose, sneezing, hives, and itching. It works by blocking a certain natural substance (histamine) that your body makes during an allergic reaction",
     rating: 4.1,
-    isFavourite: true,
+    isFavourite: false,
     isPopular: true,
   ),
   Product(
     id: 7,
     images: [
-      "assets/images/Cetirizine.jpg",
+      "assets/images/ashwagandha.jfif",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -143,13 +143,47 @@ List<Product> demoProducts = [
       Color(0xFFDECB9C),
       Colors.white,
     ],
-    title: "Cetirizine Tablet",
-    price: 36.55,
-    description:
-        "Cetirizine is an antihistamine used to relieve allergy symptoms such as watery eyes, runny nose, itching eyes/nose, sneezing, hives, and itching. It works by blocking a certain natural substance (histamine) that your body makes during an allergic reaction",
+    title: "Ashwagandha Powder",
+    price: 636.55,
+    description: "Ashwagandha is a small evergreen shrub. It grows in India, the Middle East, and parts of Africa. The root and berry are used to make medicine. Ashwagandha is commonly used for stress. It is also used as an adaptogen for many other conditions, but there is no good scientific evidence to support these other uses.",
     rating: 4.1,
     isFavourite: true,
-    isPopular: true,
+    isPopular: false,
+  ),
+  Product(
+    id: 8,
+    images: [
+      "assets/images/cardocalm.jfif",
+    ],
+    colors: [
+      Color(0xFFF6625E),
+      Color(0xFF836DB8),
+      Color(0xFFDECB9C),
+      Colors.white,
+    ],
+    title: "CardoCalm Tablets",
+    price: 636.55,
+    description: "Cardocalm Tablet is an ayurvedic dietary supplement, primarily used to manage vitamin and mineral deficiency in the body caused due to certain illnesses or poor intake of diet. It is formulated using ayurvedic herbs containing essential vitamins and minerals which improves overall health and development",
+    rating: 4.1,
+    isFavourite: true,
+    isPopular: false,
+  ),
+  Product(
+    id: 9,
+    images: [
+      "assets/images/paracetamol.jfif",
+    ],
+    colors: [
+      Color(0xFFF6625E),
+      Color(0xFF836DB8),
+      Color(0xFFDECB9C),
+      Colors.white,
+    ],
+    title: "Paracetamol",
+    price: 24.55,
+    description: "This medicine contains paracetamol. It belongs to a group of medicines called analgesics (painkillers) and is used to treat pain (including headache, toothache, back and period pain) and cold or flu symptoms", rating: 4.1,
+    isFavourite: true,
+    isPopular: false,
   ),
 ];
 
