@@ -94,7 +94,7 @@ class SpecialOfferCard extends StatelessWidget {
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       colors: [
-                        Color(0xFF343434).withOpacity(0.4),
+                        Color(0xFF343434).withOpacity(0.5),
                         Color(0xFF343434).withOpacity(0.15),
                       ],
                     ),
@@ -112,7 +112,7 @@ class SpecialOfferCard extends StatelessWidget {
                         TextSpan(
                           text: "$category\n",
                           style: TextStyle(
-                            fontSize: getProportionateScreenWidth(18),
+                            fontSize: getProportionateScreenWidth(16),
                             fontWeight: FontWeight.bold,
                           ),
                         ),
