@@ -153,7 +153,7 @@ List<Product> demoProducts = [
   ),
 ];
 
-List<Product> suplimentPro = [
+List<Product> supplementProductList = [
   Product(
     id: 1,
     images: [

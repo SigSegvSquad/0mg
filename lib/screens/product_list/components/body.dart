@@ -15,17 +15,18 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: suplimentPro.length,
+      itemCount: supplementProductList.length,
       itemBuilder: (context, index) {
         return ListTile(
-          leading: Image.asset(suplimentPro[index].images[0]),
-          title: Text('${suplimentPro[index].title}'),
-          subtitle: Text('${suplimentPro[index].description}'),
-          trailing: Text('${suplimentPro[index].price}'),
+          leading: Image.asset(supplementProductList[index].images[0],
+          width: 40,),
+          title: Text('${supplementProductList[index].title}'),
+          subtitle: Text('${supplementProductList[index].description}'),
+          trailing: Text('${supplementProductList[index].price}'),
           onTap: () => Navigator.pushNamed(
             context,
             DetailsScreen.routeName,
-            arguments: ProductDetailsArguments(product: suplimentPro[index]),
+            arguments: ProductDetailsArguments(product: supplementProductList[index]),
           ),
         );
       },
