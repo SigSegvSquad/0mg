@@ -27,10 +27,7 @@ List<Product> demoProducts = [
   Product(
     id: 1,
     images: [
-      "assets/images/ps4_console_white_1.png",
-      "assets/images/ps4_console_white_2.png",
-      "assets/images/ps4_console_white_3.png",
-      "assets/images/ps4_console_white_4.png",
+      "assets/images/Aarovit_syrup.jpg",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -38,9 +35,9 @@ List<Product> demoProducts = [
       Color(0xFFDECB9C),
       Colors.white,
     ],
-    title: "Wireless Controller for PS4™",
-    price: 64.99,
-    description: description,
+    title: "Aarovit syrup",
+    price: 108.00,
+    description: "Aarovit Syrup contains Multiminerals and Multivitamins as active ingredients. Aarovit Syrup is useful for the normal and proper growth of the body. During pregnancy, childhood, and illness body requires more vitamins and minerals than usual. Aarovit fulfills all the requirements of the body for the proper functioning.",
     rating: 4.8,
     isFavourite: true,
     isPopular: true,
@@ -48,7 +45,7 @@ List<Product> demoProducts = [
   Product(
     id: 2,
     images: [
-      "assets/images/Image Popular Product 2.png",
+      "assets/images/Abetcola_Tablet.jpg",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -56,16 +53,16 @@ List<Product> demoProducts = [
       Color(0xFFDECB9C),
       Colors.white,
     ],
-    title: "Nike Sport White - Man Pant",
-    price: 50.5,
-    description: description,
+    title: "Abetcola Tablet",
+    price: 309.00,
+    description: "Abetcola Tablet is a combination of ingredients that has anti-aging properties. It improves health and growth of hair and nails",
     rating: 4.1,
     isPopular: true,
   ),
   Product(
     id: 3,
     images: [
-      "assets/images/glap.png",
+      "assets/images/Amenol.jpg",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -73,9 +70,9 @@ List<Product> demoProducts = [
       Color(0xFFDECB9C),
       Colors.white,
     ],
-    title: "Gloves XC Omega - Polygon",
+    title: "Amenol Tablet",
     price: 36.55,
-    description: description,
+    description: "AMENOL TABLETS   RANGE OF ACTION: Effective in Amenorrhoea. Also useful in Dysmenorrhoea. Helpful in Uterus Chlorosis",
     rating: 4.1,
     isFavourite: true,
     isPopular: true,
@@ -83,7 +80,7 @@ List<Product> demoProducts = [
   Product(
     id: 4,
     images: [
-      "assets/images/wireless headset.png",
+      "assets/images/Anaboom.jpg",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -91,13 +88,43 @@ List<Product> demoProducts = [
       Color(0xFFDECB9C),
       Colors.white,
     ],
-    title: "Logitech Head",
+    title: "Anaboom Shampoo",
     price: 20.20,
-    description: description,
+    description: "Anaboom AD shampoo contains active ingredients zinc pyrithione which is an antifungal. It prevents hair fall and provides extra rich conditioning to hair. ... It helps in reducing flakes, provides relief from itch, and improves hair tangles and more",
     rating: 4.1,
     isFavourite: true,
   ),
+  Product(
+      id: 5,
+      images: [
+        "assets/images/horlicks.jpg",
+      ],
+      colors:  [
+        Color(0xFFF6625E),
+        Color(0xFF836DB8),
+        Color(0xFFDECB9C),
+        Colors.white,
+      ],
+      title: "Horlicks Junior",
+      price: null,
+      description: "Junior Horlicks is tailor made nutrition for Growth and Development of Toddlers and Pre-Schoolers. Horlicks is a nourishing malt based beverage that helps support your child's growth. Lite Horlicks is a specialised health food drink designed for Active Adults. Bone Nutrition specialist designed for Women"
+  ),
+  Product(
+    id: 6,
+    images: [
+      "assets/images/Cetirizine.jpg",
+    ],
+    colors: [
+      Color(0xFFF6625E),
+      Color(0xFF836DB8),
+      Color(0xFFDECB9C),
+      Colors.white,
+    ],
+    title: "Cetirizine Tablet",
+    price: 36.55,
+    description: "Cetirizine is an antihistamine used to relieve allergy symptoms such as watery eyes, runny nose, itching eyes/nose, sneezing, hives, and itching. It works by blocking a certain natural substance (histamine) that your body makes during an allergic reaction",
+    rating: 4.1,
+    isFavourite: true,
+    isPopular: true,
+  ),
 ];
-
-const String description =
-    "Wireless Controller for PS4™ gives you what you want in your gaming from over precision control your games to sharing …";
