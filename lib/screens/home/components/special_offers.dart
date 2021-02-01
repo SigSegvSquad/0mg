@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:shop_app/screens/product_list/product_list_screen.dart';
 import '../../../size_config.dart';
 import 'section_title.dart';
 
@@ -29,25 +29,33 @@ class SpecialOffers extends StatelessWidget {
                 image: "assets/images/supplements.png",
                 category: "Supplements",
                 numOfBrands: 18,
-                press: () {},
+                press: () {
+                  Navigator.pushNamed(context, ProductListScreen.routeName);
+                },
               ),
               SpecialOfferCard(
                 image: "assets/images/ayurveda.png",
                 category: "Ayurveda",
                 numOfBrands: 9,
-                press: () {},
+                press: () {
+                  Navigator.pushNamed(context, ProductListScreen.routeName);
+                },
               ),
               SpecialOfferCard(
                 image: "assets/images/personal_care.png",
                 category: "Lifestyle",
                 numOfBrands: 12,
-                press: () {},
+                press: () {
+                  Navigator.pushNamed(context, ProductListScreen.routeName);
+                },
               ),
               SpecialOfferCard(
                 image: "assets/images/other_medicines.jpg",
                 category: "Other",
                 numOfBrands: 24,
-                press: () {},
+                press: () {
+                  Navigator.pushNamed(context, ProductListScreen.routeName);
+                },
               ),
               SizedBox(width: getProportionateScreenWidth(20)),
             ],
