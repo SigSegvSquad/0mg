@@ -10,7 +10,9 @@ class ProductListScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Supplements'),
       ),
-      body: Body(),
+      body: Body(
+
+      ),
     );
   }
 }

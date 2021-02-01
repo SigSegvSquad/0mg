@@ -22,7 +22,13 @@ class HomeHeader extends StatelessWidget {
             svgSrc: "assets/icons/menu.svg",
             press: () {Scaffold.of(context).openDrawer();},
           ),
-          SearchField(),
+          Text("PharmaApp", style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 25,
+          ),
+          textAlign: TextAlign.left,
+          ),
+          //SearchField(),
           IconBtnWithCounter(
             svgSrc: "assets/icons/Cart Icon.svg",
             press: () => Navigator.pushNamed(context, CartScreen.routeName),
