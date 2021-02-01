@@ -18,6 +18,7 @@ class _BodyState extends State<Body> {
       itemCount: suplimentPro.length,
       itemBuilder: (context, index) {
         return ListTile(
+          leading: Image.asset(suplimentPro[index].images[0]),
           title: Text('${suplimentPro[index].title}'),
           subtitle: Text('${suplimentPro[index].description}'),
           trailing: Text('${suplimentPro[index].price}'),
