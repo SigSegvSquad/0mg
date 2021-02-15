@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:carousel_pro/carousel_pro.dart';
 import '../../../size_config.dart';
 
 class DiscountBanner extends StatelessWidget {
@@ -9,33 +9,40 @@ class DiscountBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // height: 90,
-      width: double.infinity,
-      margin: EdgeInsets.all(getProportionateScreenWidth(20)),
-      padding: EdgeInsets.symmetric(
-        horizontal: getProportionateScreenWidth(20),
-        vertical: getProportionateScreenWidth(15),
-      ),
-      decoration: BoxDecoration(
-        color: Color(0xFF4A3298),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Text.rich(
-        TextSpan(
-          style: TextStyle(color: Colors.white),
-          children: [
-            TextSpan(text: "A Summer Surpise\n"),
-            TextSpan(
-              text: "Cashback 20%",
-              style: TextStyle(
-                fontSize: getProportionateScreenWidth(24),
-                fontWeight: FontWeight.bold,
-              ),
+    return Padding(
+        padding: EdgeInsets.only(left: 10, right: 10),
+        child: Container(
+        height: 170.0,
+        width: double.infinity,
+        child: Carousel(
+          images: [
+            Image.asset(
+              "assets/images/med.jpg",
+              height: 170,
+              width: double.infinity,
             ),
+            Image.asset(
+              "assets/images/med2.png",
+              // height: 150,
+              // width: double.infinity,
+            ),
+            Image.asset(
+              "assets/images/med3.jpg",
+              // height: 150,
+              // width: double.infinity,
+            )
           ],
+          dotSize: 4.0,
+          dotSpacing: 15.0,
+          dotColor: Colors.purple,
+          indicatorBgPadding: 5.0,
+          dotBgColor: Colors.black54.withOpacity(0.2),
+          borderRadius: true,
+          radius: Radius.circular(20),
+          moveIndicatorFromBottom: 180.0,
+          noRadiusForIndicator: true,
         ),
-      ),
+      )
     );
   }
 }
