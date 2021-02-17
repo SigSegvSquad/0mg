@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/models/Cart.dart';
 
 import 'components/body.dart';
-import 'components/check_out_card.dart';
 
 class CartScreen extends StatelessWidget {
   static String routeName = "/cart";
@@ -11,7 +10,7 @@ class CartScreen extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(context),
       body: Body(),
-      bottomNavigationBar: CheckoutCard(),
+      // bottomNavigationBar: CheckoutCard(),
     );
   }
 
@@ -24,7 +23,7 @@ class CartScreen extends StatelessWidget {
             style: TextStyle(color: Colors.black),
           ),
           Text(
-            "${demoCarts.length} items",
+            "${yourCart.length} items",
             style: Theme.of(context).textTheme.caption,
           ),
         ],

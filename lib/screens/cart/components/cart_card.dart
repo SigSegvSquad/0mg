@@ -10,7 +10,7 @@ class CartCard extends StatelessWidget {
     @required this.cart,
   }) : super(key: key);
 
-  final Cart cart;
+  final CartProduct cart;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class CartCard extends StatelessWidget {
             SizedBox(height: 10),
             Text.rich(
               TextSpan(
-                text: "\$${cart.product.price}",
+                text: "\₹${cart.product.price}",
                 style: TextStyle(
                     fontWeight: FontWeight.w600, color: kPrimaryColor),
                 children: [
