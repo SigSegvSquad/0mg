@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class Product {
@@ -21,7 +22,46 @@ class Product {
   });
 }
 
-// Our demo Products
+List<Product> supplementProductList = [];
+
+void getProductData() {
+  int id = 0;
+  FirebaseFirestore.instance
+      .collection('products')
+      .get()
+      .then((QuerySnapshot querySnapshot) => {
+            querySnapshot.docs.forEach((doc) {
+              Product product = Product(
+                id: id++,
+                images: [
+                  "assets/images/Aarovit_syrup.jpg",
+                ],
+                colors: [
+                  Color(0xFFF6625E),
+                  Color(0xFF836DB8),
+                  Color(0xFFDECB9C),
+                  Colors.white,
+                ],
+                title: doc['name'],
+                price: double.parse(doc['price']),
+                description: "Need a description",
+                rating: 5.0,
+                isFavourite: false,
+                isPopular: true,
+              );
+              if (doc["category"] == "lifestyle") {
+              } else if (doc["category"] == "tablet") {
+                supplementProductList.add(product);
+              } else if (doc["category"] == "supplement") {
+                supplementProductList.add(product);
+              } else if (doc["category"] == "surgery") {
+                supplementProductList.add(product);
+              } else if (doc["category"] == "other") {
+                supplementProductList.add(product);
+              }
+            })
+          });
+}
 
 List<Product> demoProducts = [
   Product(
@@ -145,7 +185,8 @@ List<Product> demoProducts = [
     ],
     title: "Ashwagandha Powder",
     price: 636.55,
-    description: "Ashwagandha is a small evergreen shrub. It grows in India, the Middle East, and parts of Africa. The root and berry are used to make medicine. Ashwagandha is commonly used for stress. It is also used as an adaptogen for many other conditions, but there is no good scientific evidence to support these other uses.",
+    description:
+        "Ashwagandha is a small evergreen shrub. It grows in India, the Middle East, and parts of Africa. The root and berry are used to make medicine. Ashwagandha is commonly used for stress. It is also used as an adaptogen for many other conditions, but there is no good scientific evidence to support these other uses.",
     rating: 4.1,
     isFavourite: true,
     isPopular: false,
@@ -163,7 +204,8 @@ List<Product> demoProducts = [
     ],
     title: "CardoCalm Tablets",
     price: 636.55,
-    description: "Cardocalm Tablet is an ayurvedic dietary supplement, primarily used to manage vitamin and mineral deficiency in the body caused due to certain illnesses or poor intake of diet. It is formulated using ayurvedic herbs containing essential vitamins and minerals which improves overall health and development",
+    description:
+        "Cardocalm Tablet is an ayurvedic dietary supplement, primarily used to manage vitamin and mineral deficiency in the body caused due to certain illnesses or poor intake of diet. It is formulated using ayurvedic herbs containing essential vitamins and minerals which improves overall health and development",
     rating: 4.1,
     isFavourite: true,
     isPopular: false,
@@ -181,13 +223,16 @@ List<Product> demoProducts = [
     ],
     title: "Paracetamol",
     price: 24.55,
-    description: "This medicine contains paracetamol. It belongs to a group of medicines called analgesics (painkillers) and is used to treat pain (including headache, toothache, back and period pain) and cold or flu symptoms", rating: 4.1,
+    description:
+        "This medicine contains paracetamol. It belongs to a group of medicines called analgesics (painkillers) and is used to treat pain (including headache, toothache, back and period pain) and cold or flu symptoms",
+    rating: 4.1,
     isFavourite: true,
     isPopular: false,
   ),
 ];
 
-List<Product> supplementProductList = [
+/*
+
   Product(
     id: 1,
     images: [
@@ -458,4 +503,5 @@ List<Product> supplementProductList = [
     isFavourite: true,
     isPopular: true,
   ),
-];
+
+ */

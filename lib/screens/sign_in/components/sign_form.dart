@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/custom_surfix_icon.dart';
 import 'package:shop_app/components/form_error.dart';
-import 'package:shop_app/helper/keyboard.dart';
 import 'package:shop_app/screens/forgot_password/forgot_password_screen.dart';
-import 'package:shop_app/screens/login_success/login_success_screen.dart';
 import 'package:shop_app/screens/home/home_screen.dart';
+import 'package:shop_app/models/Product.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import '../../../components/default_button.dart';
@@ -38,6 +37,7 @@ class _SignFormState extends State<SignForm> {
           password: password
       );
       print('Login successful');
+      getProductData();
       Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomeScreen()));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
