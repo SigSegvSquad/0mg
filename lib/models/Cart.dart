@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'Product.dart';
+import 'Order.dart';
 
 class CartProduct {
   final Product product;
@@ -11,6 +11,27 @@ class CartProduct {
 
 List<CartProduct> yourCart = [
 ];
+
+double getCheckoutPrice(){
+  double priceTotal = 0;
+  for(var i = 0; i < yourCart.length; i++){
+    priceTotal += yourCart[i].numOfItem * yourCart[i].product.price;
+  }
+  return priceTotal;
+}
+
+void placeOrder(){
+
+  var productQtyPair = {};
+
+  for(var i = 0; i < yourCart.length; i++){
+    productQtyPair[yourCart[i].product.id.toString()] = yourCart[i].numOfItem;
+  }
+
+  Order order = new Order(order: productQtyPair, price: getCheckoutPrice().toInt());
+
+  order.registerOnDatabase();
+}
 
 void addToCart(Product product){
   for(var i = 0; i < yourCart.length; i++){
@@ -43,12 +64,4 @@ int getNumItems(Product product){
     }
   }
   return 0;
-}
-
-double getCheckoutPrice(){
-  double priceTotal = 0;
-  for(var i = 0; i < yourCart.length; i++){
-    priceTotal += yourCart[i].numOfItem * yourCart[i].product.price;
-  }
-  return priceTotal;
 }

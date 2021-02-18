@@ -122,7 +122,7 @@ class _BodyState extends State<Body> {
                         width: getProportionateScreenWidth(190),
                         child: DefaultButton(
                           text: "Check Out",
-                          press: () {},
+                          press: () { placeOrder(); },
                         ),
                       ),
                     ],
