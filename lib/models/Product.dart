@@ -23,6 +23,10 @@ class Product {
 }
 
 List<Product> supplementProductList = [];
+List<Product> lifestyleProductList = [];
+List<Product> tabletProductList = [];
+List<Product> surgeryProductList = [];
+List<Product> otherProductList = [];
 
 void getProductData() {
   int id = 0;
@@ -50,14 +54,15 @@ void getProductData() {
                 isPopular: true,
               );
               if (doc["category"] == "lifestyle") {
+                lifestyleProductList.add(product);
               } else if (doc["category"] == "tablet") {
-                supplementProductList.add(product);
+                tabletProductList.add(product);
               } else if (doc["category"] == "supplement") {
                 supplementProductList.add(product);
               } else if (doc["category"] == "surgery") {
-                supplementProductList.add(product);
+                surgeryProductList.add(product);
               } else if (doc["category"] == "other") {
-                supplementProductList.add(product);
+                otherProductList.add(product);
               }
             })
           });

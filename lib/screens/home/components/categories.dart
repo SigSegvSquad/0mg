@@ -30,7 +30,7 @@ class Categories extends StatelessWidget {
                 category: "General",
                 numOfBrands: 35,
                 press: () {
-                  Navigator.pushNamed(context, ProductListScreen.routeName);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProductListScreen(category: "General")));
                 },
               ),
               SpecialOfferCard(
@@ -38,7 +38,7 @@ class Categories extends StatelessWidget {
                 category: "Supplements",
                 numOfBrands: 18,
                 press: () {
-                  Navigator.pushNamed(context, ProductListScreen.routeName);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProductListScreen(category: "Supplements")));
                 },
               ),
               SpecialOfferCard(
@@ -46,7 +46,7 @@ class Categories extends StatelessWidget {
                 category: "Ayurveda",
                 numOfBrands: 9,
                 press: () {
-                  Navigator.pushNamed(context, ProductListScreen.routeName);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProductListScreen(category: "Ayurveda")));
                 },
               ),
               SpecialOfferCard(
@@ -54,7 +54,7 @@ class Categories extends StatelessWidget {
                 category: "Lifestyle",
                 numOfBrands: 12,
                 press: () {
-                  Navigator.pushNamed(context, ProductListScreen.routeName);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProductListScreen(category: "Lifestyle")));
                 },
               ),
               SpecialOfferCard(
@@ -62,7 +62,7 @@ class Categories extends StatelessWidget {
                 category: "Other",
                 numOfBrands: 24,
                 press: () {
-                  Navigator.pushNamed(context, ProductListScreen.routeName);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProductListScreen(category: "Other")));
                 },
               ),
               SizedBox(width: getProportionateScreenWidth(20)),
