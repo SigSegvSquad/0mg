@@ -5,11 +5,12 @@ import 'package:shop_app/screens/forgot_password/forgot_password_screen.dart';
 import 'package:shop_app/screens/home/home_screen.dart';
 import 'package:shop_app/models/Product.dart';
 import 'package:firebase_core/firebase_core.dart';
-
+import 'package:shop_app/models/User.dart';
 import '../../../components/default_button.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SignForm extends StatefulWidget {
   @override
@@ -32,11 +33,22 @@ class _SignFormState extends State<SignForm> {
 
     print('${email} ${password}');
     try {
-      UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+
+      final FirebaseAuth auth = FirebaseAuth.instance;
+
+      UserCredential userCredential = await auth.signInWithEmailAndPassword(
           email: email,
           password: password
       );
+      userId = auth.currentUser.uid;
       print('Login successful');
+
+      CollectionReference users = FirebaseFirestore.instance.collection('users');
+      
+      users.doc(userId).get().then((value) => {
+        username = value.data()["name"]
+      });
+
       getProductData();
       Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomeScreen()));
     } on FirebaseAuthException catch (e) {

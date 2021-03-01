@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/routes.dart';
 import 'package:shop_app/screens/profile/profile_screen.dart';
+import 'package:shop_app/models/User.dart';
 
 class NavDrawer extends StatelessWidget {
   @override
@@ -31,7 +32,7 @@ class NavDrawer extends StatelessWidget {
               Container(
                 margin: EdgeInsets.all(20),
                   child:Text(
-                "Username",
+                username,
                 style: TextStyle(
                   fontSize: 20,
                   color: Colors.white,
