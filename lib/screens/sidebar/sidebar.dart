@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/routes.dart';
 import 'package:shop_app/screens/profile/profile_screen.dart';
+import 'package:shop_app/screens/home/home_screen.dart';
 import 'package:shop_app/models/User.dart';
+import 'package:shop_app/screens/subscription/subscription_screen.dart';
 
 class NavDrawer extends StatelessWidget {
   @override
@@ -41,14 +42,19 @@ class NavDrawer extends StatelessWidget {
               )))),
             ),
           ListTile(
-            leading: Icon(Icons.input),
-            title: Text('Welcome'),
-            onTap: () => {},
+            leading: Icon(Icons.home),
+            title: Text('Home'),
+            onTap: () => {Navigator.pushNamed(context, HomeScreen.routeName)},
           ),
           ListTile(
             leading: Icon(Icons.verified_user),
             title: Text('Profile'),
             onTap: () => {Navigator.pushNamed(context, ProfileScreen.routeName)},
+          ),
+          ListTile(
+            leading: Icon(Icons.access_time_rounded),
+            title: Text('Subscription'),
+            onTap: () => {Navigator.pushNamed(context, SubscriptionScreen.routeName)},
           ),
           ListTile(
             leading: Icon(Icons.settings),
