@@ -3,10 +3,22 @@ import 'package:shop_app/screens/profile/profile_screen.dart';
 import 'package:shop_app/screens/home/home_screen.dart';
 import 'package:shop_app/models/User.dart';
 import 'package:shop_app/screens/subscription/subscription_screen.dart';
+import 'package:shop_app/screens/sign_in/sign_in_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class NavDrawer extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
+
+    void logout(){
+      FirebaseAuth.instance.signOut();
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) => (SignInScreen())
+      ));
+    }
+
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -69,7 +81,9 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.exit_to_app),
             title: Text('Logout'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () => {
+              logout()
+            },
           ),
         ],
       ),

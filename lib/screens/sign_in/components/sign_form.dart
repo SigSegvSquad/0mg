@@ -27,9 +27,31 @@ class _SignFormState extends State<SignForm> {
   TextEditingController passwordController = new TextEditingController();
   TextEditingController emailController = new TextEditingController();
 
+  @override
+  void initState(){
+    super.initState();
+    if(FirebaseAuth.instance.currentUser != null){
+      setUserDets();
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) => HomeScreen()
+      ));
+    }
+
+  }
+
+  void setUserDets(){
+    userId = FirebaseAuth.instance.currentUser.uid;
+
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+
+    users.doc(userId).get().then((value) => {
+      username = value.data()["name"]
+    });
+  }
+
   void login(email, password) async {
 
-    await Firebase.initializeApp();
+    //await Firebase.initializeApp();
 
     print('${email} ${password}');
     try {
@@ -40,14 +62,9 @@ class _SignFormState extends State<SignForm> {
           email: email,
           password: password
       );
-      userId = auth.currentUser.uid;
-      print('Login successful');
 
-      CollectionReference users = FirebaseFirestore.instance.collection('users');
-      
-      users.doc(userId).get().then((value) => {
-        username = value.data()["name"]
-      });
+      setUserDets();
+      print('Login successful');
 
       getProductData();
       Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomeScreen()));
