@@ -1,5 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app/constants.dart';
+import 'package:shop_app/models/Product.dart';
+import 'package:shop_app/models/User.dart';
+import 'package:shop_app/screens/home/home_screen.dart';
 import 'package:shop_app/screens/sign_in/sign_in_screen.dart';
 import 'package:shop_app/size_config.dart';
 
@@ -29,6 +34,20 @@ class _BodyState extends State<Body> {
       "image": "assets/images/splash_3.png"
     },
   ];
+
+
+  void setUserDeets(){
+    userId = FirebaseAuth.instance.currentUser.uid;
+
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+
+    users.doc(userId).get().then((value) => {
+      username = value.data()["name"]
+    });
+
+    getProductData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -70,7 +89,12 @@ class _BodyState extends State<Body> {
                     DefaultButton(
                       text: "Continue",
                       press: () {
-                        Navigator.pushNamed(context, SignInScreen.routeName);
+                        if(FirebaseAuth.instance.currentUser != null){
+                          setUserDeets();
+                          Navigator.of(context).pushNamed(HomeScreen.routeName);
+                        }
+                        else
+                          Navigator.pushNamed(context, SignInScreen.routeName);
                       },
                     ),
                     Spacer(),
