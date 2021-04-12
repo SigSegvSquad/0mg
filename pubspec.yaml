@@ -30,11 +30,11 @@ dependencies:
   carousel_pro: ^1.0.0
   flutter_bloc: ^3.1.0
   # if you are using latest flutter please update your flutter_svg package to ^0.18.*
-  flutter_svg: ^0.18.0 # help us to use SVG in our app
   provider: ^4.3.1 # for State management
   firebase_core: ^0.7.0
   firebase_auth: "^0.20.0+1"
   cloud_firestore: "^0.16.0"
+  flutter_svg: ^0.20.0-nullsafety.3
 
 dev_dependencies:
   flutter_test:

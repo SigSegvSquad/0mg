@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
+import 'package:shop_app/screens/search_results/search_result_screen.dart';
 
 class SearchField extends StatelessWidget {
   const SearchField({
@@ -10,6 +11,9 @@ class SearchField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final searchQueryController = TextEditingController();
+
     return Container(
       width: SizeConfig.screenWidth * 0.9,
       decoration: BoxDecoration(
@@ -17,7 +21,7 @@ class SearchField extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
       ),
       child: TextField(
-        onChanged: (value) => print(value),
+        controller: searchQueryController,
         decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(
                 horizontal: getProportionateScreenWidth(20),
@@ -26,7 +30,13 @@ class SearchField extends StatelessWidget {
             focusedBorder: InputBorder.none,
             enabledBorder: InputBorder.none,
             hintText: "Search product",
-            suffixIcon: Icon(Icons.search)),
+            suffixIcon: IconButton(
+              icon: Icon(Icons.search),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SearchResultScreen(searchQueryController.text)));
+        },
+            ),
+          ) ,
       ),
     );
   }

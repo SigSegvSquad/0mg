@@ -22,6 +22,7 @@ class Product {
   });
 }
 
+List<Product> allProducts = [];
 List<Product> supplementProductList = [];
 List<Product> lifestyleProductList = [];
 List<Product> tabletProductList = [];
@@ -53,6 +54,7 @@ void getProductData() {
                 isFavourite: false,
                 isPopular: true,
               );
+              allProducts.add(product);
               if (doc["category"] == "lifestyle") {
                 lifestyleProductList.add(product);
               } else if (doc["category"] == "tablet") {
