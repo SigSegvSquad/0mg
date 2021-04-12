@@ -27,19 +27,7 @@ class _SignFormState extends State<SignForm> {
   TextEditingController passwordController = new TextEditingController();
   TextEditingController emailController = new TextEditingController();
 
-  @override
-  void initState(){
-    super.initState();
-    if(FirebaseAuth.instance.currentUser != null){
-      setUserDets();
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => HomeScreen()
-      ));
-    }
-
-  }
-
-  void setUserDets(){
+  void setUserDeets(){
     userId = FirebaseAuth.instance.currentUser.uid;
 
     CollectionReference users = FirebaseFirestore.instance.collection('users');
@@ -47,11 +35,11 @@ class _SignFormState extends State<SignForm> {
     users.doc(userId).get().then((value) => {
       username = value.data()["name"]
     });
+
+    getProductData();
   }
 
   void login(email, password) async {
-
-    //await Firebase.initializeApp();
 
     print('${email} ${password}');
     try {
@@ -63,10 +51,9 @@ class _SignFormState extends State<SignForm> {
           password: password
       );
 
-      setUserDets();
+      setUserDeets();
       print('Login successful');
 
-      getProductData();
       Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomeScreen()));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
@@ -93,6 +80,7 @@ class _SignFormState extends State<SignForm> {
 
   @override
   Widget build(BuildContext context) {
+
     return Form(
       key: _formKey,
       child: Column(
