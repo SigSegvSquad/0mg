@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:shop_app/helper/globals.dart';
-import 'package:shop_app/helper/tutorial.dart';
+import 'package:shop_app/tutorial/tutorialAdditionals.dart';
+import 'package:shop_app/tutorial/tutorial.dart';
 import 'package:shop_app/models/User.dart';
 import 'package:shop_app/screens/home/home_screen.dart';
 import 'package:shop_app/screens/profile/profile_screen.dart';
@@ -49,20 +49,20 @@ class NavDrawer extends StatelessWidget {
                         )))),
           ),
           ListTile(
-            key: Globals.homeKey,
+            key: TutorialAdditionals.homeKey,
             leading: Icon(Icons.home),
             title: Text('Home'),
             onTap: () => {Navigator.pushNamed(context, HomeScreen.routeName)},
           ),
           ListTile(
-            key: Globals.settingsKey,
+            key: TutorialAdditionals.settingsKey,
             leading: Icon(Icons.settings),
             title: Text('Settings'),
             onTap: () =>
                 {Navigator.pushNamed(context, ProfileScreen.routeName)},
           ),
           ListTile(
-            key: Globals.subscriptionKey,
+            key: TutorialAdditionals.subscriptionKey,
             leading: Icon(Icons.access_time_rounded),
             title: Text('Subscription'),
             onTap: () =>
@@ -74,13 +74,13 @@ class NavDrawer extends StatelessWidget {
             onTap: () => {Navigator.of(context).pop()},
           ),
           ListTile(
-            key: Globals.tutorialKey,
+            key: TutorialAdditionals.tutorialKey,
             leading: Icon(Icons.help),
             title: Text('Tutorial'),
             onTap: () => {startTutorial(), Navigator.of(context).pop()},
           ),
           ListTile(
-            key: Globals.logoutKey,
+            key: TutorialAdditionals.logoutKey,
             leading: Icon(Icons.exit_to_app),
             title: Text('Logout'),
             onTap: () => {logout()},

@@ -2,17 +2,59 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:highlighter_coachmark/highlighter_coachmark.dart';
-import 'package:shop_app/helper/globals.dart';
+import 'package:shop_app/tutorial/tutorialAdditionals.dart';
+
+/*
+Alright so this is a big ass file and you need to understand the flow,
+
+the startTutorial function is called when the user presses on the option in the
+sidebar or for a first time user. after that, the flow is:
+
+startTutorial() => showSearchBar => showHotBar => showDiscountBanner =>
+=> show PopularProducts => showSideBar => showDrawerOptions => startCartTutorial
+
+the rest of the CartTutorial is when the user clicks on any Product when
+orderProduct() is called with a callback after the product page is built
+(exact function in lib/screens/product_details/details_screen.dart#13).
+
+Then, goBackToHome() is called when the user clicks on the + button in a product
+(here lib/screens/product_details/components/color_dots.dart#88).
+
+Similar to orderProduct(), goToCart() and inCart() are called via callbacks once
+the widget is created.
+
+Total list of all files involved in Tutorials if you need it
+(And may god be with you if you do, because you'll need the help)
+
+Cart:
+  - lib/screens/cart/components/body.dart
+
+Home:
+  - lib/screens/home/components/body.dart
+  - lib/screens/home/components/home_header.dart
+  - lib/screens/home/components/popular_product.dart
+  - lib/screens/sidebar/sidebar.dart
+
+ProductDetails:
+  - lib/screens/product_details/components/color_dots.dart
+  - lib/screens/product_details/components/custom_app_bar.dart
+  - lib/screens/product_details/details_screen.dart
+
+Actual Tutorial:
+  - lib/tutorial/tutorial.dart
+  - lib/tutorial/tutorialAdditionals.dart
+*/
+// Read this, You'll need it if you wanna fix this mess ^
 
 void startTutorial() {
   print('Tutorial Begin');
-  Globals.isTutorial = true;
+  TutorialAdditionals.isTutorial = true;
   showSearchBar();
 }
 
 void showSearchBar() {
   CoachMark itemCoachMark = CoachMark();
-  BuildContext currentContext = Globals.searchKey.currentContext;
+  BuildContext currentContext = TutorialAdditionals.searchKey.currentContext;
   RenderBox widgetRenderBox = currentContext.findRenderObject();
   String displayText = "This is the Search Bar";
 
@@ -42,7 +84,7 @@ void showSearchBar() {
 
 void showDiscountBanner() {
   CoachMark itemCoachMark = CoachMark();
-  BuildContext currentContext = Globals.bannerKey.currentContext;
+  BuildContext currentContext = TutorialAdditionals.bannerKey.currentContext;
   RenderBox widgetRenderBox = currentContext.findRenderObject();
   String displayText = "This is the Discount Banner";
 
@@ -72,7 +114,7 @@ void showDiscountBanner() {
 
 void showHotBar() {
   CoachMark itemCoachMark = CoachMark();
-  BuildContext currentContext = Globals.hotBarKey.currentContext;
+  BuildContext currentContext = TutorialAdditionals.hotBarKey.currentContext;
   RenderBox widgetRenderBox = currentContext.findRenderObject();
   String displayText = "This is the Hot Bar";
 
@@ -104,7 +146,8 @@ void showHotBar() {
 
 void showCategories() {
   CoachMark itemCoachMark = CoachMark();
-  BuildContext currentContext = Globals.categoriesKey.currentContext;
+  BuildContext currentContext =
+      TutorialAdditionals.categoriesKey.currentContext;
   RenderBox widgetRenderBox = currentContext.findRenderObject();
   String displayText = "This are the categories";
 
@@ -136,7 +179,8 @@ void showCategories() {
 
 void showPopularProducts() {
   CoachMark itemCoachMark = CoachMark();
-  BuildContext currentContext = Globals.popularProductsKey.currentContext;
+  BuildContext currentContext =
+      TutorialAdditionals.popularProductsKey.currentContext;
   RenderBox widgetRenderBox = currentContext.findRenderObject();
   String displayText = "These are the currently Popular Products";
 
@@ -166,7 +210,8 @@ void showPopularProducts() {
 
 void showSideBar() {
   CoachMark itemCoachMark = CoachMark();
-  BuildContext currentContext = Globals.popularProductsKey.currentContext;
+  BuildContext currentContext =
+      TutorialAdditionals.popularProductsKey.currentContext;
   String displayText = "<- SideBar";
 
   Rect markRect =
@@ -200,7 +245,8 @@ void showSideBar() {
 
 void showDrawerOptions() {
   CoachMark itemCoachMark = CoachMark();
-  BuildContext currentContext = Globals.popularProductsKey.currentContext;
+  BuildContext currentContext =
+      TutorialAdditionals.popularProductsKey.currentContext;
   String displayText =
       "This is the Side Bar, Use the options here for navigation and settings";
 
@@ -235,7 +281,8 @@ void showDrawerOptions() {
 
 void startCartTutorial() {
   CoachMark itemCoachMark = CoachMark();
-  BuildContext currentContext = Globals.singleProductKey.currentContext;
+  BuildContext currentContext =
+      TutorialAdditionals.singleProductKey.currentContext;
   String displayText = "Now lets try ordering a product,\nClick here";
   RenderBox widgetRenderBox = currentContext.findRenderObject();
 
@@ -265,7 +312,8 @@ void startCartTutorial() {
 
 void orderProduct() {
   CoachMark itemCoachMark = CoachMark();
-  BuildContext currentContext = Globals.addProductKey.currentContext;
+  BuildContext currentContext =
+      TutorialAdditionals.addProductKey.currentContext;
   String displayText = "Now lets try ordering a product,\nClick here";
   RenderBox widgetRenderBox = currentContext.findRenderObject();
 
@@ -296,7 +344,8 @@ void orderProduct() {
 
 void goBackToHome() {
   CoachMark itemCoachMark = CoachMark();
-  BuildContext currentContext = Globals.exitProductKey.currentContext;
+  BuildContext currentContext =
+      TutorialAdditionals.exitProductKey.currentContext;
   String displayText = "Now we go back to home,\nClick here";
   RenderBox widgetRenderBox = currentContext.findRenderObject();
 
@@ -305,7 +354,7 @@ void goBackToHome() {
   markRect = Rect.fromCircle(
       center: markRect.center, radius: markRect.longestSide * 0.6);
 
-  Globals.backHomeOrderedProduct = true;
+  TutorialAdditionals.backHomeOrderedProduct = true;
 
   itemCoachMark.show(
       targetContext: currentContext,
@@ -328,10 +377,11 @@ void goBackToHome() {
 }
 
 void goToCart() {
-  Globals.backHomeOrderedProduct = false;
+  TutorialAdditionals.backHomeOrderedProduct = false;
+  TutorialAdditionals.inCart = true;
 
   CoachMark itemCoachMark = CoachMark();
-  BuildContext currentContext = Globals.cartKey.currentContext;
+  BuildContext currentContext = TutorialAdditionals.cartKey.currentContext;
   String displayText = "Click here";
   RenderBox widgetRenderBox = currentContext.findRenderObject();
 
@@ -358,4 +408,36 @@ void goToCart() {
       duration: null,
       onClose: () => Timer(Duration(milliseconds: 50),
           () => {print("Tutorial.goToCart finished")}));
+}
+
+void inCart(BuildContext currentContext) {
+  TutorialAdditionals.inCart = false;
+  TutorialAdditionals.isTutorial = false;
+
+  CoachMark itemCoachMark = CoachMark();
+  String displayText =
+      "And we end here,\n\nWhen Ordering, click on the Button saying 'Check Out'\n\n For now, swipe left on the Product and click Back";
+
+  Rect markRect =
+      Rect.fromLTWH(0.0, 0.0, 0.0, MediaQuery.of(currentContext).size.height);
+
+  itemCoachMark.show(
+      targetContext: currentContext,
+      markRect: markRect,
+      markShape: BoxShape.rectangle,
+      children: [
+        Center(
+          child: Text(
+            displayText,
+            style: const TextStyle(
+              fontSize: 22.0,
+              fontStyle: FontStyle.italic,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ],
+      duration: null,
+      onClose: () => Timer(
+          Duration(milliseconds: 50), () => {print('Tutorial finished')}));
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shop_app/helper/globals.dart';
-import 'package:shop_app/helper/tutorial.dart';
+import 'package:shop_app/tutorial/tutorialAdditionals.dart';
+import 'package:shop_app/tutorial/tutorial.dart';
 
 import '../../../size_config.dart';
 
@@ -16,7 +16,7 @@ class CustomAppBar extends PreferredSize {
 
   @override
   Widget build(BuildContext context) {
-    if (!Globals.isTutorial) {
+    if (!TutorialAdditionals.isTutorial) {
       return SafeArea(
         child: Padding(
           padding:
@@ -76,7 +76,7 @@ class CustomAppBar extends PreferredSize {
                 height: getProportionateScreenWidth(40),
                 width: getProportionateScreenWidth(40),
                 child: FlatButton(
-                  key: Globals.exitProductKey,
+                  key: TutorialAdditionals.exitProductKey,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(60),
                   ),

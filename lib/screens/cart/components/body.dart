@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/constants.dart';
+import 'package:shop_app/tutorial/tutorialAdditionals.dart';
+import 'package:shop_app/tutorial/tutorial.dart';
 import 'package:shop_app/models/Cart.dart';
 
 import '../../../size_config.dart';
@@ -17,6 +19,8 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
+    if(TutorialAdditionals.inCart)
+      WidgetsBinding.instance.addPostFrameCallback((timeStamp) {inCart(context);});
     widget.price = getCheckoutPrice();
     return Column(children: <Widget>[
       Expanded(

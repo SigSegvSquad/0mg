@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:shop_app/helper/globals.dart';
+import 'package:shop_app/tutorial/tutorialAdditionals.dart';
 import 'package:shop_app/models/OrderDetails.dart';
 import 'package:shop_app/models/User.dart';
 import 'package:shop_app/screens/home/components/search_field.dart';
@@ -53,19 +53,19 @@ class Body extends StatelessWidget {
             HomeHeader(),
             SizedBox(height: getProportionateScreenWidth(10)),
             SearchField(
-              key: Globals.searchKey,
+              key: TutorialAdditionals.searchKey,
             ),
             SizedBox(height: getProportionateScreenWidth(5)),
             DiscountBanner(
-              key: Globals.bannerKey,
+              key: TutorialAdditionals.bannerKey,
             ),
-            HotBar(key: Globals.hotBarKey),
+            HotBar(key: TutorialAdditionals.hotBarKey),
             SizedBox(height: getProportionateScreenWidth(20)),
             Categories(
-              key: Globals.categoriesKey,
+              key: TutorialAdditionals.categoriesKey,
             ),
             SizedBox(height: getProportionateScreenWidth(30)),
-            PopularProducts(key: Globals.popularProductsKey),
+            PopularProducts(key: TutorialAdditionals.popularProductsKey),
             SizedBox(height: getProportionateScreenWidth(30)),
             SeasonalProducts()
           ],

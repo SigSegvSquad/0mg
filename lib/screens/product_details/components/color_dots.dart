@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/rounded_icon_btn.dart';
-import 'package:shop_app/helper/globals.dart';
-import 'package:shop_app/helper/tutorial.dart';
+import 'package:shop_app/tutorial/tutorialAdditionals.dart';
+import 'package:shop_app/tutorial/tutorial.dart';
 import 'package:shop_app/models/Cart.dart';
 import 'package:shop_app/models/Product.dart';
 
@@ -25,7 +25,7 @@ class _ColorDots extends State<ColorDots> {
   @override
   Widget build(BuildContext context) {
     widget.numItems = getNumItems(widget.product);
-    if (!Globals.isTutorial) {
+    if (!TutorialAdditionals.isTutorial) {
       return Padding(
         padding:
             EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
@@ -77,7 +77,7 @@ class _ColorDots extends State<ColorDots> {
             ),
             SizedBox(width: getProportionateScreenWidth(20)),
             RoundedIconBtn(
-              key: Globals.addProductKey,
+              key: TutorialAdditionals.addProductKey,
               icon: Icons.add,
               showShadow: true,
               press: () {
