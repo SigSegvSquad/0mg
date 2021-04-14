@@ -6,9 +6,16 @@ import '../../../size_config.dart';
 import 'section_title.dart';
 
 class PopularProducts extends StatelessWidget {
+
+  UniqueKey key;
+  PopularProducts({key: UniqueKey}){
+    this.key = key;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
+      key: key,
       children: [
         Padding(
           padding:

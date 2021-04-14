@@ -10,6 +10,13 @@ import 'popular_product.dart';
 import 'categories.dart';
 
 class Body extends StatelessWidget {
+  var bannerKey = UniqueKey();
+  var searchKey = UniqueKey();
+  var hotBarKey = UniqueKey();
+  var categoriesKey = UniqueKey();
+  var popularProductsKey = UniqueKey();
+  var seasonalProductsKey = UniqueKey();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -19,13 +26,13 @@ class Body extends StatelessWidget {
             SizedBox(height: getProportionateScreenHeight(20)),
             HomeHeader(),
             SizedBox(height: getProportionateScreenWidth(10)),
-            SearchField(),
+            SearchField(key: searchKey,),
             SizedBox(height: getProportionateScreenWidth(5)),
-            DiscountBanner(),
-            HotBar(),
-            Categories(),
-            SizedBox(height: getProportionateScreenWidth(30)),
-            PopularProducts(),
+            DiscountBanner(key: bannerKey,),
+            HotBar(key: hotBarKey),
+            SizedBox(height: getProportionateScreenWidth(20)),
+            Categories(key: categoriesKey,),
+            PopularProducts(key: popularProductsKey),
             SizedBox(height: getProportionateScreenWidth(30)),
             SeasonalProducts()
           ],

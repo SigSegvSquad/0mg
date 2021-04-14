@@ -22,3 +22,14 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+/*
+TODO
+ - tutorial
+ - admin side
+ - order format
+ - profile settings
+ - payment options
+ - order status - in delivery, delivered, etc.
+ - advanced search settings - incomplete search, etc.
+*/
