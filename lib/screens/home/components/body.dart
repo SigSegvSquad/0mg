@@ -28,6 +28,7 @@ class Body extends StatelessWidget {
             HotBar(key: Globals.hotBarKey),
             SizedBox(height: getProportionateScreenWidth(20)),
             Categories(key: Globals.categoriesKey,),
+            SizedBox(height: getProportionateScreenWidth(30)),
             PopularProducts(key: Globals.popularProductsKey),
             SizedBox(height: getProportionateScreenWidth(30)),
             SeasonalProducts()
