@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:shop_app/models/User.dart';
 
 class Order{
   String orderId;
@@ -21,15 +22,30 @@ class Order{
 
   void registerOnDatabase(){
     CollectionReference orders = FirebaseFirestore.instance.collection('orders');
+    CollectionReference usersFbase = FirebaseFirestore.instance.collection('users');
 
-    print(order);
+    var userDetails = {
+      "userId": userId,
+      "username": username,
+      "email": email,
+      "address": address,
+      "phoneNumber": phoneNumber
+    };
+
 
     orders.add({
       'order':order,
       'amount':price,
-      'date':date
+      'date':date,
+      'userDetails': userDetails,
+      'orderStatus': 'pending approval'
     }).
-    then((value) => print("Order registered")).
+    then((value) =>{
+      ordersArr.add(value.id),
+      usersFbase.doc(userId).update({
+        "orderIds": ordersArr
+      })
+    }).
     catchError((error) => print("Error while registration: $error"));
   }
 
