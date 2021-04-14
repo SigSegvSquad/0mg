@@ -4,6 +4,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../size_config.dart';
 
 class HotBar extends StatelessWidget {
+  GlobalKey key;
+  HotBar({key: GlobalKey}){
+    this.key = key;
+  }
+
   @override
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> categories = [
@@ -14,6 +19,7 @@ class HotBar extends StatelessWidget {
       {"icon": "assets/icons/Discover.svg", "text": "More"},
     ];
     return Padding(
+      key: key,
       padding: EdgeInsets.all(getProportionateScreenWidth(20)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

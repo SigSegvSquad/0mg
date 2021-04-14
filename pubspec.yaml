@@ -34,6 +34,7 @@ dependencies:
   firebase_core: ^0.7.0
   firebase_auth: "^0.20.0+1"
   cloud_firestore: "^0.16.0"
+  highlighter_coachmark: ^0.0.3
   flutter_svg: ^0.20.0-nullsafety.3
 
 dev_dependencies:
