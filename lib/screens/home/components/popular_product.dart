@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/product_card.dart';
+import 'package:shop_app/helper/globals.dart';
 import 'package:shop_app/models/Product.dart';
 
 import '../../../size_config.dart';
@@ -14,6 +15,7 @@ class PopularProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isFirst = true;
     return Column(
       key: key,
       children: [
@@ -30,6 +32,11 @@ class PopularProducts extends StatelessWidget {
               ...List.generate(
                 demoProducts.length,
                 (index) {
+                  if (demoProducts[index].isPopular && isFirst == true) {
+                    isFirst = false;
+                    return ProductCard(product: demoProducts[index], key: Globals.singleProductKey,);
+                  }
+
                   if (demoProducts[index].isPopular)
                     return ProductCard(product: demoProducts[index]);
 

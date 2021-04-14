@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/rounded_icon_btn.dart';
+import 'package:shop_app/helper/globals.dart';
 import 'package:shop_app/models/Product.dart';
 import 'package:shop_app/models/Cart.dart';
 
@@ -23,40 +24,74 @@ class _ColorDots extends State<ColorDots>{
 
   @override
   Widget build(BuildContext context) {
-    // Now this is fixed and only for demo
-    // int selectedColor = 3;
     widget.numItems = getNumItems(widget.product);
-    return Padding(
-      padding:
-      EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-      child: Row(
-        children: [
-          SizedBox(width: getProportionateScreenWidth(40)),
-          Text(widget.numItems.toString()),
-          Spacer(),
-          RoundedIconBtn(
-            icon: Icons.remove,
-            press: () {
-              removeFromCart(widget.product);
-              setState(() {
-                widget.numItems -= 1;
-              });
-            },
-          ),
-          SizedBox(width: getProportionateScreenWidth(20)),
-          RoundedIconBtn(
-            icon: Icons.add,
-            showShadow: true,
-            press: () {
-              addToCart(widget.product);
-              setState(() {
-                widget.numItems += 1;
-              });
-            },
-          ),
-        ],
-      ),
-    );
+    if(!Globals.isTutorial){
+      return Padding(
+        padding:
+        EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+        child: Row(
+          children: [
+            SizedBox(width: getProportionateScreenWidth(40)),
+            Text(widget.numItems.toString()),
+            Spacer(),
+            RoundedIconBtn(
+              icon: Icons.remove,
+              press: () {
+                removeFromCart(widget.product);
+                setState(() {
+                  widget.numItems -= 1;
+                });
+              },
+            ),
+            SizedBox(width: getProportionateScreenWidth(20)),
+            RoundedIconBtn(
+              icon: Icons.add,
+              showShadow: true,
+              press: () {
+                addToCart(widget.product);
+                setState(() {
+                  widget.numItems += 1;
+                });
+              },
+            ),
+          ],
+        ),
+      );
+    }
+    else {
+      return Padding(
+        padding:
+            EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+        child: Row(
+          children: [
+            SizedBox(width: getProportionateScreenWidth(40)),
+            Text(widget.numItems.toString()),
+            Spacer(),
+            RoundedIconBtn(
+              icon: Icons.remove,
+              press: () {
+                removeFromCart(widget.product);
+                setState(() {
+                  widget.numItems -= 1;
+                });
+              },
+            ),
+            SizedBox(width: getProportionateScreenWidth(20)),
+            RoundedIconBtn(
+              key: Globals.addProductKey,
+              icon: Icons.add,
+              showShadow: true,
+              press: () {
+                addToCart(widget.product);
+                setState(() {
+                  widget.numItems += 1;
+                });
+              },
+            ),
+          ],
+        ),
+      );
+    }
   }
 }
 
