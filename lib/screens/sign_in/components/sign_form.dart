@@ -1,17 +1,16 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/custom_surfix_icon.dart';
 import 'package:shop_app/components/form_error.dart';
+import 'package:shop_app/models/Product.dart';
+import 'package:shop_app/models/User.dart';
 import 'package:shop_app/screens/forgot_password/forgot_password_screen.dart';
 import 'package:shop_app/screens/home/home_screen.dart';
-import 'package:shop_app/models/Product.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:shop_app/models/User.dart';
+
 import '../../../components/default_button.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:shop_app/models/OrderDetails.dart';
 
 class SignForm extends StatefulWidget {
   @override
@@ -28,35 +27,41 @@ class _SignFormState extends State<SignForm> {
   TextEditingController passwordController = new TextEditingController();
   TextEditingController emailController = new TextEditingController();
 
-  void setUserDeets(){
+  void setUserDeets() {
     userId = FirebaseAuth.instance.currentUser.uid;
 
     CollectionReference users = FirebaseFirestore.instance.collection('users');
-    CollectionReference ordersFBase = FirebaseFirestore.instance.collection('orders');
+    CollectionReference ordersFBase =
+        FirebaseFirestore.instance.collection('orders');
 
     users.doc(userId).get().then((value) => {
-      username, address, phoneNumber, email, ordersArr = value.data()["name"], value.data()["location"], value.data()["phone"], value.data()["email"], value.data()["orderIds"],
-      print("Orders:"+ordersArr.length.toString())
-    });
+          username,
+          address,
+          phoneNumber,
+          email,
+          ordersArr = value.data()["name"],
+          value.data()["location"],
+          value.data()["phone"],
+          value.data()["email"],
+          value.data()["orderIds"],
+          print("Orders:" + ordersArr.length.toString())
+        });
     getProductData();
   }
 
   void login(email, password) async {
-
     print('${email} ${password}');
     try {
-
       final FirebaseAuth auth = FirebaseAuth.instance;
 
       UserCredential userCredential = await auth.signInWithEmailAndPassword(
-          email: email,
-          password: password
-      );
+          email: email, password: password);
 
       setUserDeets();
       print('Login successful');
 
-      Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomeScreen()));
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => HomeScreen()));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
@@ -82,7 +87,6 @@ class _SignFormState extends State<SignForm> {
 
   @override
   Widget build(BuildContext context) {
-
     return Form(
       key: _formKey,
       child: Column(
@@ -132,7 +136,6 @@ class _SignFormState extends State<SignForm> {
   }
 
   TextFormField buildPasswordFormField() {
-
     return TextFormField(
       controller: passwordController,
       obscureText: true,
@@ -167,7 +170,6 @@ class _SignFormState extends State<SignForm> {
   }
 
   TextFormField buildEmailFormField() {
-
     return TextFormField(
       controller: emailController,
       keyboardType: TextInputType.emailAddress,

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shop_app/screens/home/home_screen.dart';
 import 'package:shop_app/screens/user_orders/user_orders_screen.dart';
 
 import '../../../size_config.dart';
 
 class HotBar extends StatelessWidget {
   GlobalKey key;
-  HotBar({key: GlobalKey}){
+
+  HotBar({key: GlobalKey}) {
     this.key = key;
   }
 
@@ -16,8 +16,16 @@ class HotBar extends StatelessWidget {
     List<Map<String, dynamic>> categories = [
       {"icon": "assets/icons/Flash Icon.svg", "text": "Deals", "page": null},
       {"icon": "assets/icons/Bill Icon.svg", "text": "Bill", "page": null},
-      {"icon": "assets/icons/Gift Icon.svg", "text": "Orders", "page": UserOrdersScreen()},
-      {"icon": "assets/icons/Phone Orange.svg", "text": "Contact", "page": null},
+      {
+        "icon": "assets/icons/Gift Icon.svg",
+        "text": "Orders",
+        "page": UserOrdersScreen()
+      },
+      {
+        "icon": "assets/icons/Phone Orange.svg",
+        "text": "Contact",
+        "page": null
+      },
       {"icon": "assets/icons/Discover.svg", "text": "More", "page": null},
     ];
     return Padding(
@@ -32,7 +40,10 @@ class HotBar extends StatelessWidget {
             icon: categories[index]["icon"],
             text: categories[index]["text"],
             press: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => categories[index]["page"]));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => categories[index]["page"]));
             },
           ),
         ),

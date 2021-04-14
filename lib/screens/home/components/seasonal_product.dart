@@ -12,7 +12,7 @@ class SeasonalProducts extends StatelessWidget {
       children: [
         Padding(
           padding:
-          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
           child: SectionTitle(title: "Seasonal Products", press: () {}),
         ),
         SizedBox(height: getProportionateScreenWidth(20)),
@@ -22,7 +22,7 @@ class SeasonalProducts extends StatelessWidget {
             children: [
               ...List.generate(
                 demoProducts.length,
-                    (index) {
+                (index) {
                   if (demoProducts[index].isFavourite)
                     return ProductCard(product: demoProducts[index]);
 

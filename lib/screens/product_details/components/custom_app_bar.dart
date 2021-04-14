@@ -16,7 +16,7 @@ class CustomAppBar extends PreferredSize {
 
   @override
   Widget build(BuildContext context) {
-    if(!Globals.isTutorial) {
+    if (!Globals.isTutorial) {
       return SafeArea(
         child: Padding(
           padding:
@@ -69,7 +69,7 @@ class CustomAppBar extends PreferredSize {
       return SafeArea(
         child: Padding(
           padding:
-          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
           child: Row(
             children: [
               SizedBox(
@@ -91,7 +91,8 @@ class CustomAppBar extends PreferredSize {
               ),
               Spacer(),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 5),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 14, vertical: 5),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(14),

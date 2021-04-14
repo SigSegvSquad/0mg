@@ -7,9 +7,9 @@ import '../../../size_config.dart';
 import 'section_title.dart';
 
 class PopularProducts extends StatelessWidget {
-
   GlobalKey key;
-  PopularProducts({key: GlobalKey}){
+
+  PopularProducts({key: GlobalKey}) {
     this.key = key;
   }
 
@@ -34,7 +34,10 @@ class PopularProducts extends StatelessWidget {
                 (index) {
                   if (demoProducts[index].isPopular && isFirst == true) {
                     isFirst = false;
-                    return ProductCard(product: demoProducts[index], key: Globals.singleProductKey,);
+                    return ProductCard(
+                      product: demoProducts[index],
+                      key: Globals.singleProductKey,
+                    );
                   }
 
                   if (demoProducts[index].isPopular)

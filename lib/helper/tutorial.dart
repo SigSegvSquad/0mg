@@ -259,7 +259,8 @@ void startCartTutorial() {
         ),
       ],
       duration: null,
-      onClose: () => Timer(Duration(milliseconds: 50), () => {print('Tutorial.clickOnProduct finished')}));
+      onClose: () => Timer(Duration(milliseconds: 50),
+          () => {print('Tutorial.clickOnProduct finished')}));
 }
 
 void orderProduct() {
@@ -289,7 +290,8 @@ void orderProduct() {
         ),
       ],
       duration: null,
-      onClose: () => Timer(Duration(milliseconds: 50), () => {print('Tutorials.addProduct finished')}));
+      onClose: () => Timer(Duration(milliseconds: 50),
+          () => {print('Tutorials.addProduct finished')}));
 }
 
 void goBackToHome() {
@@ -321,7 +323,8 @@ void goBackToHome() {
         ),
       ],
       duration: null,
-      onClose: () => Timer(Duration(milliseconds: 50), () => {print('Tutorial.backToHome finished')}));
+      onClose: () => Timer(Duration(milliseconds: 50),
+          () => {print('Tutorial.backToHome finished')}));
 }
 
 void goToCart() {
@@ -353,5 +356,6 @@ void goToCart() {
         ),
       ],
       duration: null,
-      onClose: () => Timer(Duration(milliseconds: 50), () => {print("Tutorial.goToCart finished")}));
+      onClose: () => Timer(Duration(milliseconds: 50),
+          () => {print("Tutorial.goToCart finished")}));
 }

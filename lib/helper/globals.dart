@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Globals{
+class Globals {
   static bool isTutorial = false;
   static bool backHomeOrderedProduct = false;
 

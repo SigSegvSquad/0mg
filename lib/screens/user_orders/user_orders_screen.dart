@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+
 import 'components/body.dart';
-import 'package:shop_app/models/User.dart';
 
 class UserOrdersScreen extends StatelessWidget {
   String category;

@@ -8,9 +8,9 @@ import 'package:shop_app/screens/home/home_screen.dart';
 import 'package:shop_app/screens/sign_in/sign_in_screen.dart';
 import 'package:shop_app/size_config.dart';
 
+import '../../../components/default_button.dart';
 // This is the best practice
 import '../components/splash_content.dart';
-import '../../../components/default_button.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -25,8 +25,7 @@ class _BodyState extends State<Body> {
       "image": "assets/images/splash_1.png"
     },
     {
-      "text":
-          "We help people conect with store \naround India",
+      "text": "We help people conect with store \naround India",
       "image": "assets/images/splash_2.png"
     },
     {
@@ -35,15 +34,12 @@ class _BodyState extends State<Body> {
     },
   ];
 
-
-  void setUserDeets(){
+  void setUserDeets() {
     userId = FirebaseAuth.instance.currentUser.uid;
 
     CollectionReference users = FirebaseFirestore.instance.collection('users');
 
-    users.doc(userId).get().then((value) => {
-      username = value.data()["name"]
-    });
+    users.doc(userId).get().then((value) => {username = value.data()["name"]});
 
     getProductData();
   }
@@ -89,11 +85,10 @@ class _BodyState extends State<Body> {
                     DefaultButton(
                       text: "Continue",
                       press: () {
-                        if(FirebaseAuth.instance.currentUser != null){
+                        if (FirebaseAuth.instance.currentUser != null) {
                           setUserDeets();
                           Navigator.of(context).pushNamed(HomeScreen.routeName);
-                        }
-                        else
+                        } else
                           Navigator.pushNamed(context, SignInScreen.routeName);
                       },
                     ),

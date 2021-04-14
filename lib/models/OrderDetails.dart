@@ -1,4 +1,4 @@
-class OrderDetails{
+class OrderDetails {
   String orderId;
   var userDetails;
   var orderContent;
@@ -6,6 +6,6 @@ class OrderDetails{
   int amount;
   String date;
 
-  OrderDetails(this.orderId,this.userDetails, this.orderContent, this.orderStatus, this.amount,
-      this.date);
+  OrderDetails(this.orderId, this.userDetails, this.orderContent,
+      this.orderStatus, this.amount, this.date);
 }
