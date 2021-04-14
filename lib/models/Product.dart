@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class Product {
-  final int id;
+  final String id;
   final String title, description;
   final List<String> images;
   final List<Color> colors;
@@ -30,14 +30,13 @@ List<Product> surgeryProductList = [];
 List<Product> otherProductList = [];
 
 void getProductData() {
-  int id = 0;
   FirebaseFirestore.instance
       .collection('products')
       .get()
       .then((QuerySnapshot querySnapshot) => {
             querySnapshot.docs.forEach((doc) {
               Product product = Product(
-                id: id++,
+                id: doc.id,
                 images: [
                   "assets/images/Aarovit_syrup.jpg",
                 ],
@@ -72,7 +71,7 @@ void getProductData() {
 
 List<Product> demoProducts = [
   Product(
-    id: 1,
+    id: "1",
     images: [
       "assets/images/Aarovit_syrup.jpg",
     ],
@@ -91,7 +90,7 @@ List<Product> demoProducts = [
     isPopular: true,
   ),
   Product(
-    id: 2,
+    id: "2",
     images: [
       "assets/images/Abetcola_Tablet.jpg",
     ],
@@ -109,7 +108,7 @@ List<Product> demoProducts = [
     isPopular: true,
   ),
   Product(
-    id: 3,
+    id: "3",
     images: [
       "assets/images/Amenol.jpg",
     ],
@@ -128,7 +127,7 @@ List<Product> demoProducts = [
     isPopular: true,
   ),
   Product(
-    id: 4,
+    id: "4",
     images: [
       "assets/images/Anaboom.jpg",
     ],
@@ -146,7 +145,7 @@ List<Product> demoProducts = [
     isFavourite: true,
   ),
   Product(
-      id: 5,
+      id: "5",
       images: [
         "assets/images/horlicks.jpg",
       ],
@@ -161,7 +160,7 @@ List<Product> demoProducts = [
       description:
           "Junior Horlicks is tailor made nutrition for Growth and Development of Toddlers and Pre-Schoolers. Horlicks is a nourishing malt based beverage that helps support your child's growth. Lite Horlicks is a specialised health food drink designed for Active Adults. Bone Nutrition specialist designed for Women"),
   Product(
-    id: 6,
+    id: "6",
     images: [
       "assets/images/Cetirizine.jpg",
     ],
@@ -180,7 +179,7 @@ List<Product> demoProducts = [
     isPopular: true,
   ),
   Product(
-    id: 7,
+    id: "7",
     images: [
       "assets/images/ashwagandha.jfif",
     ],
@@ -199,7 +198,7 @@ List<Product> demoProducts = [
     isPopular: false,
   ),
   Product(
-    id: 8,
+    id: "8",
     images: [
       "assets/images/cardocalm.jfif",
     ],
@@ -218,7 +217,7 @@ List<Product> demoProducts = [
     isPopular: false,
   ),
   Product(
-    id: 9,
+    id: "9",
     images: [
       "assets/images/paracetamol.jfif",
     ],
