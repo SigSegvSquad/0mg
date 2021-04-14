@@ -7,8 +7,8 @@ import 'section_title.dart';
 
 class PopularProducts extends StatelessWidget {
 
-  UniqueKey key;
-  PopularProducts({key: UniqueKey}){
+  GlobalKey key;
+  PopularProducts({key: GlobalKey}){
     this.key = key;
   }
 

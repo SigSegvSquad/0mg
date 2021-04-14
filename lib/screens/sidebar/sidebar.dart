@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:shop_app/helper/tutorial.dart';
 import 'package:shop_app/models/User.dart';
 import 'package:shop_app/screens/home/home_screen.dart';
 import 'package:shop_app/screens/profile/profile_screen.dart';
@@ -7,10 +8,8 @@ import 'package:shop_app/screens/sign_in/sign_in_screen.dart';
 import 'package:shop_app/screens/subscription/subscription_screen.dart';
 
 class NavDrawer extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-
     void logout() {
       FirebaseAuth.instance.signOut();
       Navigator.of(context).pushReplacement(
@@ -78,7 +77,7 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.help),
             title: Text('Tutorial'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () => {startTutorial(), Navigator.of(context).pop()},
           ),
           ListTile(
             leading: Icon(Icons.exit_to_app),

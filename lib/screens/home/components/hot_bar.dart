@@ -4,8 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../size_config.dart';
 
 class HotBar extends StatelessWidget {
-  UniqueKey key;
-  HotBar({key: UniqueKey}){
+  GlobalKey key;
+  HotBar({key: GlobalKey}){
     this.key = key;
   }
 

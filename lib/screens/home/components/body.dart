@@ -9,13 +9,9 @@ import 'home_header.dart';
 import 'popular_product.dart';
 import 'categories.dart';
 
+import 'package:shop_app/helper/globals.dart';
+
 class Body extends StatelessWidget {
-  var bannerKey = UniqueKey();
-  var searchKey = UniqueKey();
-  var hotBarKey = UniqueKey();
-  var categoriesKey = UniqueKey();
-  var popularProductsKey = UniqueKey();
-  var seasonalProductsKey = UniqueKey();
 
   @override
   Widget build(BuildContext context) {
@@ -26,13 +22,13 @@ class Body extends StatelessWidget {
             SizedBox(height: getProportionateScreenHeight(20)),
             HomeHeader(),
             SizedBox(height: getProportionateScreenWidth(10)),
-            SearchField(key: searchKey,),
+            SearchField(key: Globals.searchKey,),
             SizedBox(height: getProportionateScreenWidth(5)),
-            DiscountBanner(key: bannerKey,),
-            HotBar(key: hotBarKey),
+            DiscountBanner(key: Globals.bannerKey,),
+            HotBar(key: Globals.hotBarKey),
             SizedBox(height: getProportionateScreenWidth(20)),
-            Categories(key: categoriesKey,),
-            PopularProducts(key: popularProductsKey),
+            Categories(key: Globals.categoriesKey,),
+            PopularProducts(key: Globals.popularProductsKey),
             SizedBox(height: getProportionateScreenWidth(30)),
             SeasonalProducts()
           ],
