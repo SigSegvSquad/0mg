@@ -11,6 +11,7 @@ import '../../../constants.dart';
 import '../../../size_config.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:shop_app/models/OrderDetails.dart';
 
 class SignForm extends StatefulWidget {
   @override
@@ -31,11 +32,12 @@ class _SignFormState extends State<SignForm> {
     userId = FirebaseAuth.instance.currentUser.uid;
 
     CollectionReference users = FirebaseFirestore.instance.collection('users');
+    CollectionReference ordersFBase = FirebaseFirestore.instance.collection('orders');
 
     users.doc(userId).get().then((value) => {
-      username, address, phoneNumber, email, ordersArr = value.data()["name"], value.data()["location"], value.data()["phone"], value.data()["email"], value.data()["orderIds"]
+      username, address, phoneNumber, email, ordersArr = value.data()["name"], value.data()["location"], value.data()["phone"], value.data()["email"], value.data()["orderIds"],
+      print("Orders:"+ordersArr.length.toString())
     });
-
     getProductData();
   }
 
