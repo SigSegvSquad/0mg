@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class Globals{
   static bool isTutorial = false;
+  static bool backHomeOrderedProduct = false;
 
   //homepage widget keys
   static GlobalKey bannerKey = GlobalKey();
@@ -23,5 +24,6 @@ class Globals{
   static GlobalKey cartKey = GlobalKey();
   static GlobalKey singleProductKey = GlobalKey();
   static GlobalKey addProductKey = GlobalKey();
+  static GlobalKey exitProductKey = GlobalKey();
   static GlobalKey orderButtonKey = GlobalKey();
 }

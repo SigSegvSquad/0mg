@@ -6,6 +6,7 @@ import 'package:shop_app/helper/globals.dart';
 
 void startTutorial() {
   print('Tutorial Begin');
+  Globals.isTutorial = true;
   showSearchBar();
 }
 
@@ -175,23 +176,182 @@ void showSideBar() {
       targetContext: currentContext,
       markRect: markRect,
       markShape: BoxShape.rectangle,
-      children: [Center(
-        child: Text(
-          displayText,
-          style: const TextStyle(
-            fontSize: 24.0,
-            fontStyle: FontStyle.italic,
-            color: Colors.white,
+      children: [
+        Center(
+          child: Text(
+            displayText,
+            style: const TextStyle(
+              fontSize: 24.0,
+              fontStyle: FontStyle.italic,
+              color: Colors.white,
+            ),
           ),
         ),
-      ),],
+      ],
       duration: null,
-      onClose: () => Timer(Duration(milliseconds: 50),
-          () => {print('Tutorial.sidebar finished'),
-          Scaffold.of(currentContext).openDrawer(),
-          showDrawerOptions()}));
+      onClose: () => Timer(
+          Duration(milliseconds: 50),
+          () => {
+                print('Tutorial.sidebar finished'),
+                Scaffold.of(currentContext).openDrawer(),
+                showDrawerOptions()
+              }));
 }
 
 void showDrawerOptions() {
+  CoachMark itemCoachMark = CoachMark();
+  BuildContext currentContext = Globals.popularProductsKey.currentContext;
+  String displayText =
+      "This is the Side Bar, Use the options here for navigation and settings";
 
+  Rect markRect =
+      Rect.fromLTWH(0.0, 0.0, 0.0, MediaQuery.of(currentContext).size.height);
+
+  itemCoachMark.show(
+      targetContext: currentContext,
+      markRect: markRect,
+      markShape: BoxShape.rectangle,
+      children: [
+        Center(
+          child: Text(
+            displayText,
+            style: const TextStyle(
+              fontSize: 24.0,
+              fontStyle: FontStyle.italic,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ],
+      duration: null,
+      onClose: () => Timer(
+          Duration(milliseconds: 50),
+          () => {
+                print('Tutorial.drawer finished'),
+                Navigator.of(currentContext).pop(),
+                startCartTutorial()
+              }));
+}
+
+void startCartTutorial() {
+  CoachMark itemCoachMark = CoachMark();
+  BuildContext currentContext = Globals.singleProductKey.currentContext;
+  String displayText = "Now lets try ordering a product,\nClick here";
+  RenderBox widgetRenderBox = currentContext.findRenderObject();
+
+  Rect markRect =
+      widgetRenderBox.localToGlobal(Offset.zero) & widgetRenderBox.size;
+  markRect = markRect.inflate(5.0);
+  itemCoachMark.show(
+      targetContext: currentContext,
+      markRect: markRect,
+      markShape: BoxShape.rectangle,
+      children: [
+        Center(
+          child: Text(
+            displayText,
+            style: const TextStyle(
+              fontSize: 24.0,
+              fontStyle: FontStyle.italic,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ],
+      duration: null,
+      onClose: () => Timer(Duration(milliseconds: 50), () => {print('Tutorial.clickOnProduct finished')}));
+}
+
+void orderProduct() {
+  CoachMark itemCoachMark = CoachMark();
+  BuildContext currentContext = Globals.addProductKey.currentContext;
+  String displayText = "Now lets try ordering a product,\nClick here";
+  RenderBox widgetRenderBox = currentContext.findRenderObject();
+
+  Rect markRect =
+      widgetRenderBox.localToGlobal(Offset.zero) & widgetRenderBox.size;
+  markRect = Rect.fromCircle(
+      center: markRect.center, radius: markRect.longestSide * 0.6);
+
+  itemCoachMark.show(
+      targetContext: currentContext,
+      markRect: markRect,
+      children: [
+        Center(
+          child: Text(
+            displayText,
+            style: const TextStyle(
+              fontSize: 24.0,
+              fontStyle: FontStyle.italic,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ],
+      duration: null,
+      onClose: () => Timer(Duration(milliseconds: 50), () => {print('Tutorials.addProduct finished')}));
+}
+
+void goBackToHome() {
+  CoachMark itemCoachMark = CoachMark();
+  BuildContext currentContext = Globals.exitProductKey.currentContext;
+  String displayText = "Now we go back to home,\nClick here";
+  RenderBox widgetRenderBox = currentContext.findRenderObject();
+
+  Rect markRect =
+      widgetRenderBox.localToGlobal(Offset.zero) & widgetRenderBox.size;
+  markRect = Rect.fromCircle(
+      center: markRect.center, radius: markRect.longestSide * 0.6);
+
+  Globals.backHomeOrderedProduct = true;
+
+  itemCoachMark.show(
+      targetContext: currentContext,
+      markRect: markRect,
+      children: [
+        Center(
+          child: Text(
+            displayText,
+            style: const TextStyle(
+              fontSize: 24.0,
+              fontStyle: FontStyle.italic,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ],
+      duration: null,
+      onClose: () => Timer(Duration(milliseconds: 50), () => {print('Tutorial.backToHome finished')}));
+}
+
+void goToCart() {
+  Globals.backHomeOrderedProduct = false;
+
+  CoachMark itemCoachMark = CoachMark();
+  BuildContext currentContext = Globals.cartKey.currentContext;
+  String displayText = "Click here";
+  RenderBox widgetRenderBox = currentContext.findRenderObject();
+
+  Rect markRect =
+      widgetRenderBox.localToGlobal(Offset.zero) & widgetRenderBox.size;
+  markRect = Rect.fromCircle(
+      center: markRect.center, radius: markRect.longestSide * 0.6);
+
+  itemCoachMark.show(
+      targetContext: currentContext,
+      markRect: markRect,
+      children: [
+        Center(
+          child: Text(
+            displayText,
+            style: const TextStyle(
+              fontSize: 24.0,
+              fontStyle: FontStyle.italic,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ],
+      duration: null,
+      onClose: () => Timer(Duration(milliseconds: 50), () => {print("Tutorial.goToCart finished")}));
 }

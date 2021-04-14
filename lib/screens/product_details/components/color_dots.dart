@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/rounded_icon_btn.dart';
 import 'package:shop_app/helper/globals.dart';
+import 'package:shop_app/helper/tutorial.dart';
 import 'package:shop_app/models/Product.dart';
 import 'package:shop_app/models/Cart.dart';
 
@@ -86,6 +87,7 @@ class _ColorDots extends State<ColorDots>{
                 setState(() {
                   widget.numItems += 1;
                 });
+                goBackToHome();
               },
             ),
           ],
