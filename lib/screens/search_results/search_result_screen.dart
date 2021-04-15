@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'components/body.dart';
 
 class SearchResultScreen extends StatelessWidget {

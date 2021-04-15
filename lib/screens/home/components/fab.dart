@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:shop_app/screens/cart/cart_screen.dart';
 import 'package:shop_app/screens/subscription/subscription_screen.dart';
 
@@ -14,7 +13,8 @@ class FancyFab extends StatefulWidget {
   _FancyFabState createState() => _FancyFabState();
 }
 
-class _FancyFabState extends State<FancyFab> with SingleTickerProviderStateMixin {
+class _FancyFabState extends State<FancyFab>
+    with SingleTickerProviderStateMixin {
   bool isOpened = false;
   AnimationController _animationController;
   Animation<Color> _buttonColor;
@@ -87,7 +87,7 @@ class _FancyFabState extends State<FancyFab> with SingleTickerProviderStateMixin
   Widget cart() {
     return Container(
       child: FloatingActionButton(
-        onPressed:  () {
+        onPressed: () {
           Navigator.pushNamed(context, CartScreen.routeName);
         },
         tooltip: 'Cart',

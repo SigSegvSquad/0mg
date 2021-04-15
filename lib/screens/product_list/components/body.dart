@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:shop_app/models/Product.dart';
-import 'package:shop_app/components/product_card.dart';
 import 'package:shop_app/screens/product_details/details_screen.dart';
-
-import '../../../size_config.dart';
 
 class Body extends StatefulWidget {
   String category;
-  
+
   Body({@required this.category});
-  
+
   @override
   _BodyState createState() => _BodyState();
 }
@@ -23,8 +19,10 @@ class _BodyState extends State<Body> {
       itemCount: productList.length,
       itemBuilder: (context, index) {
         return ListTile(
-          leading: Image.asset(productList[index].images[0],
-          width: 40,),
+          leading: Image.asset(
+            productList[index].images[0],
+            width: 40,
+          ),
           title: Text('${productList[index].title}'),
           subtitle: Text('${productList[index].description}'),
           trailing: Text('${productList[index].price}'),
@@ -39,7 +37,7 @@ class _BodyState extends State<Body> {
   }
 }
 
-List<Product> getList(String category){
+List<Product> getList(String category) {
   if (category == "Lifestyle") {
     return lifestyleProductList;
   } else if (category == "General") {

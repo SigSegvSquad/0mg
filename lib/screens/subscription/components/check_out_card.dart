@@ -11,12 +11,13 @@ class CheckoutCard extends StatefulWidget {
   CheckoutCard({
     Key key,
   }) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => CheckoutState();
 }
 
-class CheckoutState extends State<CheckoutCard>{
-  void update(){
+class CheckoutState extends State<CheckoutCard> {
+  void update() {
     setState(() {
       widget.price = 0;
     });
