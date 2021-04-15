@@ -5,9 +5,9 @@ import 'package:shop_app/screens/user_orders/user_orders_screen.dart';
 import '../../../size_config.dart';
 
 class HotBar extends StatelessWidget {
-
+  GlobalKey key;
   HotBar({key: GlobalKey}){
-
+    this.key = key;
   }
 
   @override

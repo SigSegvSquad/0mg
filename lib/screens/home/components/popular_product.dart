@@ -7,8 +7,9 @@ import '../../../size_config.dart';
 import 'section_title.dart';
 
 class PopularProducts extends StatelessWidget {
-
+  GlobalKey key;
   PopularProducts({key: GlobalKey}){
+    this.key = key;
   }
 
   @override
