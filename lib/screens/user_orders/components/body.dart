@@ -21,14 +21,14 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
-
+    List<OrderDetails> userOrders = myOrders.reversed.toList();
     return ListView.builder(
-      itemCount: myOrders.length,
+      itemCount: userOrders.length,
       itemBuilder: (context, index) {
         return ListTile(
           title: Text('Order #${index+1}'),
-          subtitle: Text('Total Price: ₹${myOrders[index].amount}'),
-          trailing: Text('${myOrders[index].orderStatus}'),
+          subtitle: Text('Total Price: ₹${userOrders[index].amount}'),
+          trailing: Text('${userOrders[index].orderStatus}'),
           onTap: () => {},
         );
       },

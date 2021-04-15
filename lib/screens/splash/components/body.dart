@@ -42,12 +42,13 @@ class _BodyState extends State<Body> {
     CollectionReference users = FirebaseFirestore.instance.collection('users');
 
     users.doc(userId).get().then((value) => {
-      username = value.data()["name"]
+      username = value.data()["name"],
+      userEmail = value.data()["email"],
+      phoneNumber = value.data()["phone"],
+      address = value.data()["location"],
     });
-
     getProductData();
   }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(

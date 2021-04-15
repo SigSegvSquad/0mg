@@ -32,11 +32,13 @@ class _SignFormState extends State<SignForm> {
     userId = FirebaseAuth.instance.currentUser.uid;
 
     CollectionReference users = FirebaseFirestore.instance.collection('users');
-    CollectionReference ordersFBase = FirebaseFirestore.instance.collection('orders');
 
     users.doc(userId).get().then((value) => {
-      username, address, phoneNumber, email, ordersArr = value.data()["name"], value.data()["location"], value.data()["phone"], value.data()["email"], value.data()["orderIds"],
-      print("Orders:"+ordersArr.length.toString())
+      username = value.data()["name"],
+      userEmail = value.data()["email"],
+      phoneNumber = value.data()["phone"],
+      address = value.data()["location"],
+      print(username+email+address+phoneNumber)
     });
     getProductData();
   }

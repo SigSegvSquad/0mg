@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:shop_app/models/User.dart';
+import 'package:shop_app/models/OrderDetails.dart';
 
 class Order{
   String orderId;
@@ -27,7 +28,7 @@ class Order{
     var userDetails = {
       "userId": userId,
       "username": username,
-      "email": email,
+      "email": userEmail,
       "address": address,
       "phoneNumber": phoneNumber
     };
@@ -44,7 +45,8 @@ class Order{
       ordersArr.add(value.id),
       usersFbase.doc(userId).update({
         "orderIds": ordersArr
-      })
+      }),
+      myOrders.add(new OrderDetails(value.id, userDetails, order, 'pending approval', price, date))
     }).
     catchError((error) => print("Error while registration: $error"));
   }

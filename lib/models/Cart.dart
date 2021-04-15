@@ -31,6 +31,8 @@ void placeOrder(){
   Order order = new Order(order: productQtyPair, price: getCheckoutPrice().toInt());
 
   order.registerOnDatabase();
+
+  yourCart.clear();
 }
 
 void addToCart(Product product){
