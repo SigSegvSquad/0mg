@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 
 import 'components/body.dart';
 
-class LoginSuccessScreen extends StatelessWidget {
-  static String routeName = "/login_success";
+class UserOrdersScreen extends StatelessWidget {
+  String category;
+  static String routeName = "/product_list";
+
+  UserOrdersScreen();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: SizedBox(),
-        title: Text("Login Success"),
+        title: Text("Your Orders"),
       ),
       body: Body(),
     );

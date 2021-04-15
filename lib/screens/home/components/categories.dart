@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/screens/product_list/product_list_screen.dart';
+
 import '../../../size_config.dart';
 import 'section_title.dart';
 
@@ -14,7 +15,7 @@ class Categories extends StatelessWidget {
       children: [
         Padding(
           padding:
-          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
           child: SectionTitle(
             title: "Categories",
             press: () {},
@@ -30,7 +31,11 @@ class Categories extends StatelessWidget {
                 category: "General",
                 numOfBrands: 35,
                 press: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProductListScreen(category: "General")));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              ProductListScreen(category: "General")));
                 },
               ),
               SpecialOfferCard(
@@ -38,7 +43,11 @@ class Categories extends StatelessWidget {
                 category: "Supplements",
                 numOfBrands: 18,
                 press: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProductListScreen(category: "Supplements")));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              ProductListScreen(category: "Supplements")));
                 },
               ),
               SpecialOfferCard(
@@ -46,7 +55,11 @@ class Categories extends StatelessWidget {
                 category: "Ayurveda",
                 numOfBrands: 9,
                 press: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProductListScreen(category: "Ayurveda")));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              ProductListScreen(category: "Ayurveda")));
                 },
               ),
               SpecialOfferCard(
@@ -54,7 +67,11 @@ class Categories extends StatelessWidget {
                 category: "Lifestyle",
                 numOfBrands: 12,
                 press: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProductListScreen(category: "Lifestyle")));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              ProductListScreen(category: "Lifestyle")));
                 },
               ),
               SpecialOfferCard(
@@ -62,7 +79,11 @@ class Categories extends StatelessWidget {
                 category: "Other",
                 numOfBrands: 24,
                 press: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProductListScreen(category: "Other")));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              ProductListScreen(category: "Other")));
                 },
               ),
               SizedBox(width: getProportionateScreenWidth(20)),

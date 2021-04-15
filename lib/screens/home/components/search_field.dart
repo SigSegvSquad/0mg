@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/screens/search_results/search_result_screen.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
-import 'package:shop_app/screens/search_results/search_result_screen.dart';
 
 class SearchField extends StatelessWidget {
   const SearchField({
@@ -11,7 +11,6 @@ class SearchField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final searchQueryController = TextEditingController();
 
     return Container(
@@ -23,20 +22,24 @@ class SearchField extends StatelessWidget {
       child: TextField(
         controller: searchQueryController,
         decoration: InputDecoration(
-            contentPadding: EdgeInsets.symmetric(
-                horizontal: getProportionateScreenWidth(20),
-                vertical: getProportionateScreenWidth(9)),
-            border: InputBorder.none,
-            focusedBorder: InputBorder.none,
-            enabledBorder: InputBorder.none,
-            hintText: "Search product",
-            suffixIcon: IconButton(
-              icon: Icon(Icons.search),
-              onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => SearchResultScreen(searchQueryController.text)));
-        },
-            ),
-          ) ,
+          contentPadding: EdgeInsets.symmetric(
+              horizontal: getProportionateScreenWidth(20),
+              vertical: getProportionateScreenWidth(9)),
+          border: InputBorder.none,
+          focusedBorder: InputBorder.none,
+          enabledBorder: InputBorder.none,
+          hintText: "Search product",
+          suffixIcon: IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          SearchResultScreen(searchQueryController.text)));
+            },
+          ),
+        ),
       ),
     );
   }

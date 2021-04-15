@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/product_card.dart';
-import 'package:shop_app/helper/globals.dart';
+import 'package:shop_app/tutorial/tutorialAdditionals.dart';
 import 'package:shop_app/models/Product.dart';
 
 import '../../../size_config.dart';
 import 'section_title.dart';
 
 class PopularProducts extends StatelessWidget {
-
   GlobalKey key;
   PopularProducts({key: GlobalKey}){
     this.key = key;
@@ -34,7 +33,7 @@ class PopularProducts extends StatelessWidget {
                 (index) {
                   if (demoProducts[index].isPopular && isFirst == true) {
                     isFirst = false;
-                    return ProductCard(product: demoProducts[index], key: Globals.singleProductKey,);
+                    return ProductCard(product: demoProducts[index], key: TutorialAdditionals.singleProductKey,);
                   }
 
                   if (demoProducts[index].isPopular)

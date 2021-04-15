@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/rounded_icon_btn.dart';
-import 'package:shop_app/helper/globals.dart';
-import 'package:shop_app/models/Product.dart';
+import 'package:shop_app/tutorial/tutorialAdditionals.dart';
+import 'package:shop_app/tutorial/tutorial.dart';
 import 'package:shop_app/models/Cart.dart';
+import 'package:shop_app/models/Product.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
@@ -20,15 +21,14 @@ class ColorDots extends StatefulWidget {
   State<StatefulWidget> createState() => _ColorDots();
 }
 
-class _ColorDots extends State<ColorDots>{
-
+class _ColorDots extends State<ColorDots> {
   @override
   Widget build(BuildContext context) {
     widget.numItems = getNumItems(widget.product);
-    if(!Globals.isTutorial){
+    if (!TutorialAdditionals.isTutorial) {
       return Padding(
         padding:
-        EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+            EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
         child: Row(
           children: [
             SizedBox(width: getProportionateScreenWidth(40)),
@@ -57,8 +57,7 @@ class _ColorDots extends State<ColorDots>{
           ],
         ),
       );
-    }
-    else {
+    } else {
       return Padding(
         padding:
             EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
@@ -78,7 +77,7 @@ class _ColorDots extends State<ColorDots>{
             ),
             SizedBox(width: getProportionateScreenWidth(20)),
             RoundedIconBtn(
-              key: Globals.addProductKey,
+              key: TutorialAdditionals.addProductKey,
               icon: Icons.add,
               showShadow: true,
               press: () {
@@ -86,6 +85,7 @@ class _ColorDots extends State<ColorDots>{
                 setState(() {
                   widget.numItems += 1;
                 });
+                goBackToHome();
               },
             ),
           ],

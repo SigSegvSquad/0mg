@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Globals{
+class TutorialAdditionals {
   static bool isTutorial = false;
+  static bool backHomeOrderedProduct = false;
+  static bool inCart = false;
 
   //homepage widget keys
   static GlobalKey bannerKey = GlobalKey();
@@ -23,5 +25,6 @@ class Globals{
   static GlobalKey cartKey = GlobalKey();
   static GlobalKey singleProductKey = GlobalKey();
   static GlobalKey addProductKey = GlobalKey();
+  static GlobalKey exitProductKey = GlobalKey();
   static GlobalKey orderButtonKey = GlobalKey();
 }

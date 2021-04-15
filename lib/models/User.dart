@@ -1,6 +1,10 @@
-String userId = "0000";
-String username = "username";
-String email = "example@gmail.com";
-String address = "uranus";
-String phoneNumber = "9X9X99X9X";
+import 'package:shop_app/models/OrderDetails.dart';
+
+var userId;
+var username;
+var userEmail;
+var address;
+var phoneNumber;
 var ordersArr = [];
+var load = 1;
+List<OrderDetails> myOrders = [];
