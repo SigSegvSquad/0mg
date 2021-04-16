@@ -29,6 +29,14 @@ List<Product> tabletProductList = [];
 List<Product> surgeryProductList = [];
 List<Product> otherProductList = [];
 
+Product getProductById(String id){
+  for(var i=0;i<allProducts.length;i++){
+    if(id==allProducts[i].id)
+      return allProducts[i];
+  }
+  return null;
+}
+
 void getProductData() {
   FirebaseFirestore.instance
       .collection('products')

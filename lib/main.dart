@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'epharma app',
+      title: '0mg',
       theme: theme(),
       initialRoute: SplashScreen.routeName,
       routes: routes,
@@ -25,11 +25,8 @@ class MyApp extends StatelessWidget {
 
 /*
 TODO
- - tutorial
  - admin side
- - order format
- - profile settings
+ - CI/CD
  - payment options
- - order status - in delivery, delivered, etc.
  - advanced search settings - incomplete search, etc.
 */

@@ -47,6 +47,7 @@ class Body extends StatelessWidget {
 
     return SafeArea(
       child: SingleChildScrollView(
+        controller: TutorialAdditionals.homeScrollController,
         child: Column(
           children: [
             SizedBox(height: getProportionateScreenHeight(20)),
@@ -59,13 +60,13 @@ class Body extends StatelessWidget {
             DiscountBanner(
               key: TutorialAdditionals.bannerKey,
             ),
-            HotBar(key: TutorialAdditionals.hotBarKey),
+            HotBar(),
             SizedBox(height: getProportionateScreenWidth(20)),
             Categories(
               key: TutorialAdditionals.categoriesKey,
             ),
             SizedBox(height: getProportionateScreenWidth(30)),
-            PopularProducts(key: TutorialAdditionals.popularProductsKey),
+            PopularProducts(),
             SizedBox(height: getProportionateScreenWidth(30)),
             SeasonalProducts()
           ],

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:highlighter_coachmark/highlighter_coachmark.dart';
@@ -173,19 +174,23 @@ void showCategories() {
       duration: null,
       onClose: () => Timer(
           Duration(milliseconds: 50),
-          () =>
-              {print('Tutorial.categories finished'), showPopularProducts()}));
+          () => {
+                print('Tutorial.categories finished'),
+                scrollDown(TutorialAdditionals.homeScrollController, MediaQuery.of(currentContext).size.height / 2),
+                showPopularProducts()
+              }));
 }
 
 void showPopularProducts() {
-  CoachMark itemCoachMark = CoachMark();
   BuildContext currentContext =
       TutorialAdditionals.popularProductsKey.currentContext;
   RenderBox widgetRenderBox = currentContext.findRenderObject();
   String displayText = "These are the currently Popular Products";
+  CoachMark itemCoachMark = CoachMark();
 
-  Rect markRect =
-      widgetRenderBox.localToGlobal(Offset.zero) & widgetRenderBox.size;
+  Rect markRect = widgetRenderBox.localToGlobal(Offset.fromDirection(
+          -pi / 2, MediaQuery.of(currentContext).size.height / 2)) &
+      widgetRenderBox.size;
   markRect = markRect.inflate(35.0);
   itemCoachMark.show(
       targetContext: currentContext,
@@ -339,7 +344,9 @@ void orderProduct() {
       ],
       duration: null,
       onClose: () => Timer(Duration(milliseconds: 50),
-          () => {print('Tutorials.addProduct finished')}));
+          () => {print('Tutorials.addProduct finished'),
+            scrollUp(TutorialAdditionals.homeScrollController,
+                MediaQuery.of(currentContext).size.height / 2),}));
 }
 
 void goBackToHome() {
