@@ -119,6 +119,7 @@ class _SignFormState extends State<SignForm> {
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(20)),
           DefaultButton(
+            key: Key('signInButton'),
             text: "Continue",
             press: () {
               if (_formKey.currentState.validate()) {
@@ -136,6 +137,7 @@ class _SignFormState extends State<SignForm> {
   TextFormField buildPasswordFormField() {
 
     return TextFormField(
+      key: Key('signInPasswordFormField'),
       controller: passwordController,
       obscureText: true,
       onSaved: (newValue) => password = newValue,
@@ -171,6 +173,7 @@ class _SignFormState extends State<SignForm> {
   TextFormField buildEmailFormField() {
 
     return TextFormField(
+      key: Key('signInEmailFormField'),
       controller: emailController,
       keyboardType: TextInputType.emailAddress,
       onSaved: (newValue) => email = newValue,
@@ -182,16 +185,6 @@ class _SignFormState extends State<SignForm> {
         }
         return null;
       },
-      // validator: (value) {
-      //   if (value.isEmpty) {
-      //     addError(error: kEmailNullError);
-      //     return "";
-      //   } else if (!emailValidatorRegExp.hasMatch(value)) {
-      //     addError(error: kInvalidEmailError);
-      //     return "";
-      //   }
-      //   return null;
-      // },
       decoration: InputDecoration(
         labelText: "Email",
         hintText: "Enter your email",

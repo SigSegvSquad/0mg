@@ -27,6 +27,7 @@ class Categories extends StatelessWidget {
           child: Row(
             children: [
               SpecialOfferCard(
+                key: Key('general'),
                 image: "assets/images/tablets.jpg",
                 category: "General",
                 numOfBrands: 35,

@@ -29,15 +29,15 @@ class Body extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SocalCard(
+                    SocialTile(
                       icon: "assets/icons/google-icon.svg",
                       press: () {},
                     ),
-                    SocalCard(
+                    SocialTile(
                       icon: "assets/icons/facebook-2.svg",
                       press: () {},
                     ),
-                    SocalCard(
+                    SocialTile(
                       icon: "assets/icons/twitter.svg",
                       press: () {},
                     ),

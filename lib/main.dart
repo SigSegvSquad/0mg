@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
 TODO
  - admin side
  - CI/CD
+ - Add related medicines
  - payment options
  - advanced search settings - incomplete search, etc.
 */

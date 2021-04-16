@@ -88,6 +88,7 @@ class _BodyState extends State<Body> {
                     ),
                     Spacer(flex: 3),
                     DefaultButton(
+                      key: Key('continueButton'),
                       text: "Continue",
                       press: () {
                         if(FirebaseAuth.instance.currentUser != null){
