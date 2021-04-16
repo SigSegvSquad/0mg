@@ -42,7 +42,6 @@ class MyAccount extends StatelessWidget {
             ProfilePic(),
             SizedBox(height: 20),
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
                   child: Text(
@@ -57,25 +56,19 @@ class MyAccount extends StatelessWidget {
                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
                   padding: EdgeInsets.all(20.0),
+                  width: 250,
                 ),
-                Spacer(),
-                Container(
-                  alignment: Alignment.centerRight,
-                  padding: EdgeInsets.all(10),
-                  child: ElevatedButton(
-                    child: Icon(Icons.create),
-                    onPressed: () {
-                      showDialog(
-                          context: context,
-                          builder: (context) => Update_name());
-                    },
-                  ),
-                ),
+                ElevatedButton(
+                  child: Icon(Icons.create),
+                  onPressed: () {
+                    showDialog(
+                        context: context, builder: (context) => Update_name());
+                  },
+                )
               ],
             ),
             SizedBox(height: 20),
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
                   child: Text(
@@ -90,26 +83,21 @@ class MyAccount extends StatelessWidget {
                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
                   padding: EdgeInsets.all(20.0),
+                  width: 250,
                 ),
-                Spacer(),
-                Container(
-                  alignment: Alignment.centerRight,
-                  padding: EdgeInsets.all(10),
-                  child: ElevatedButton(
-                    child: Icon(Icons.create),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Update_phone()));
-                    },
-                  ),
-                ),
+                ElevatedButton(
+                  child: Icon(Icons.create),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Update_phone()));
+                  },
+                )
               ],
             ),
             SizedBox(height: 20),
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
                   child: Text(
@@ -123,21 +111,17 @@ class MyAccount extends StatelessWidget {
                     address,
                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
+                  width: 230,
                 ),
-                Spacer(),
-                Container(
-                  alignment: Alignment.centerRight,
-                  padding: EdgeInsets.all(10),
-                  child: ElevatedButton(
-                    child: Icon(Icons.create),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Update_location()));
-                    },
-                  ),
-                ),
+                ElevatedButton(
+                  child: Icon(Icons.create),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Update_location()));
+                  },
+                )
               ],
             ),
           ],
