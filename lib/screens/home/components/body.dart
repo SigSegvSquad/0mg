@@ -55,7 +55,7 @@ class Body extends StatelessWidget {
             SearchField(
               key: TutorialAdditionals.searchKey,
             ),
-            SizedBox(height: getProportionateScreenWidth(5)),
+            SizedBox(height: getProportionateScreenWidth(15)),
             DiscountBanner(
               key: TutorialAdditionals.bannerKey,
             ),

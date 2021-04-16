@@ -11,7 +11,7 @@ class DiscountBanner extends StatelessWidget {
     return Padding(
         padding: EdgeInsets.only(left: 10, right: 10),
         child: Container(
-          height: 170.0,
+          height: 180.0,
           width: double.infinity,
           child: Carousel(
             images: [

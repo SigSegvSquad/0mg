@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -9,23 +10,21 @@ import 'update_phone.dart';
 import 'update_address.dart';
 
 class MyAccount extends StatelessWidget {
-
-
   void setUserDetails() {
     String userId = FirebaseAuth.instance.currentUser.uid;
     CollectionReference users = FirebaseFirestore.instance.collection('users');
 
-    users.doc(userId).get().then((value) => {
-          username = value.data()["name"]
-        });
+    users.doc(userId).get().then((value) => {username = value.data()["name"]});
 
-    users.doc(userId).get().then((value) => {
-      phoneNumber = value.data()["phone"]
-    });
+    users
+        .doc(userId)
+        .get()
+        .then((value) => {phoneNumber = value.data()["phone"]});
 
-    users.doc(userId).get().then((value) => {
-      address = value.data()["location"]
-    });
+    users
+        .doc(userId)
+        .get()
+        .then((value) => {address = value.data()["location"]});
 
     // String phone = mobileNo.toString();
     // print(phone);
@@ -43,6 +42,7 @@ class MyAccount extends StatelessWidget {
             ProfilePic(),
             SizedBox(height: 20),
             Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
                   child: Text(
@@ -57,19 +57,25 @@ class MyAccount extends StatelessWidget {
                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
                   padding: EdgeInsets.all(20.0),
-                  width: 250,
                 ),
-                ElevatedButton(
-                  child: Icon(Icons.create),
-                  onPressed: () {
-                    showDialog(
-                        context: context, builder: (context) => Update_name());
-                  },
-                )
+                Spacer(),
+                Container(
+                  alignment: Alignment.centerRight,
+                  padding: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                    child: Icon(Icons.create),
+                    onPressed: () {
+                      showDialog(
+                          context: context,
+                          builder: (context) => Update_name());
+                    },
+                  ),
+                ),
               ],
             ),
             SizedBox(height: 20),
             Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
                   child: Text(
@@ -84,21 +90,26 @@ class MyAccount extends StatelessWidget {
                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
                   padding: EdgeInsets.all(20.0),
-                  width: 250,
                 ),
-                ElevatedButton(
-                  child: Icon(Icons.create),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Update_phone()));
-                  },
-                )
+                Spacer(),
+                Container(
+                  alignment: Alignment.centerRight,
+                  padding: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                    child: Icon(Icons.create),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Update_phone()));
+                    },
+                  ),
+                ),
               ],
             ),
             SizedBox(height: 20),
             Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
                   child: Text(
@@ -112,17 +123,21 @@ class MyAccount extends StatelessWidget {
                     address,
                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
-                  width: 230,
                 ),
-                ElevatedButton(
-                  child: Icon(Icons.create),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Update_location()));
-                  },
-                )
+                Spacer(),
+                Container(
+                  alignment: Alignment.centerRight,
+                  padding: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                    child: Icon(Icons.create),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Update_location()));
+                    },
+                  ),
+                ),
               ],
             ),
           ],
