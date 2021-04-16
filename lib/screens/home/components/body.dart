@@ -47,6 +47,7 @@ class Body extends StatelessWidget {
 
     return SafeArea(
       child: SingleChildScrollView(
+        controller: TutorialAdditionals.homeScrollController,
         child: Column(
           children: [
             SizedBox(height: getProportionateScreenHeight(20)),

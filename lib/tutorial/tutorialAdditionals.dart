@@ -6,6 +6,8 @@ class TutorialAdditionals {
   static bool backHomeOrderedProduct = false;
   static bool inCart = false;
 
+  static ScrollController homeScrollController = ScrollController();
+
   //homepage widget keys
   static GlobalKey bannerKey = GlobalKey();
   static GlobalKey searchKey = GlobalKey();
@@ -27,4 +29,15 @@ class TutorialAdditionals {
   static GlobalKey addProductKey = GlobalKey();
   static GlobalKey exitProductKey = GlobalKey();
   static GlobalKey orderButtonKey = GlobalKey();
+
+}
+
+Future<void> scrollDown (ScrollController controller, double pixelsToMove) async {
+  controller.animateTo(pixelsToMove, curve: Curves.linear, duration: Duration (milliseconds: 500));
+  return Future.delayed(Duration(milliseconds: 550));
+}
+
+Future<void> scrollUp (ScrollController controller, double pixelsToMove) async {
+  controller.animateTo(-pixelsToMove, curve: Curves.linear, duration: Duration (milliseconds: 500));
+  return Future.delayed(Duration(milliseconds: 550));
 }
