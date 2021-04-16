@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'epharma app',
+      title: '0mg',
       theme: theme(),
       initialRoute: SplashScreen.routeName,
       routes: routes,

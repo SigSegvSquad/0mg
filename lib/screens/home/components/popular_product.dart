@@ -7,16 +7,11 @@ import '../../../size_config.dart';
 import 'section_title.dart';
 
 class PopularProducts extends StatelessWidget {
-  GlobalKey key;
-  PopularProducts({key: GlobalKey}){
-    this.key = key;
-  }
-
   @override
   Widget build(BuildContext context) {
     bool isFirst = true;
     return Column(
-      key: key,
+      key: TutorialAdditionals.popularProductsKey,
       children: [
         Padding(
           padding:
