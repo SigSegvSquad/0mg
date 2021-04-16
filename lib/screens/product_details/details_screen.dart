@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/tutorial/tutorial.dart';
+import 'package:shop_app/tutorial/tutorialAdditionals.dart';
 
 import '../../models/Product.dart';
 import 'components/body.dart';
@@ -10,9 +11,11 @@ class DetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      orderProduct();
-    });
+    if(TutorialAdditionals.isTutorial) {
+      WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+        orderProduct();
+      });
+    }
 
     final ProductDetailsArguments agrs =
         ModalRoute.of(context).settings.arguments;

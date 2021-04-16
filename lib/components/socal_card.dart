@@ -3,8 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../size_config.dart';
 
-class SocalCard extends StatelessWidget {
-  const SocalCard({
+class SocialTile extends StatelessWidget {
+  const SocialTile({
     Key key,
     this.icon,
     this.press,
