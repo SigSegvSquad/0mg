@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/models/OrderDetails.dart';
 import 'package:shop_app/models/User.dart';
-import 'package:shop_app/screens/product_details/details_screen.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:shop_app/screens/home/home_screen.dart';
+import 'package:shop_app/screens/user_orders/components/order_info.dart';
 
 import '../../../size_config.dart';
 
@@ -29,7 +29,13 @@ class _BodyState extends State<Body> {
           title: Text('Order #${index+1}'),
           subtitle: Text('Total Price: ₹${userOrders[index].amount}'),
           trailing: Text('${userOrders[index].orderStatus}'),
-          onTap: () => {},
+          onTap: () => {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                       OrderInfo(userOrders[index])))
+          },
         );
       },
     );
