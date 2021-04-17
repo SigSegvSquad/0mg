@@ -8,6 +8,7 @@ import 'profile_pic.dart';
 import 'update_name.dart';
 import 'update_phone.dart';
 import 'update_address.dart';
+import 'display_pic.dart';
 
 class MyAccount extends StatelessWidget {
   void setUserDetails() {
@@ -39,7 +40,7 @@ class MyAccount extends StatelessWidget {
         body: Center(
             child: Column(
           children: [
-            ProfilePic(),
+            displayPic(),
             SizedBox(height: 20),
             Row(
               children: [

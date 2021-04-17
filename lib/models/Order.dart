@@ -30,7 +30,8 @@ class Order{
       "username": username,
       "email": userEmail,
       "address": address,
-      "phoneNumber": phoneNumber
+      "phoneNumber": phoneNumber,
+      "image" : image
     };
 
 

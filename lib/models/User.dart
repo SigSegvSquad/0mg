@@ -4,6 +4,7 @@ var userId;
 var username;
 var userEmail;
 var address;
+var image;
 var phoneNumber;
 var ordersArr = [];
 var load = 1;
