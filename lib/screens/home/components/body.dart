@@ -5,6 +5,7 @@ import 'package:shop_app/models/OrderDetails.dart';
 import 'package:shop_app/models/User.dart';
 import 'package:shop_app/screens/home/components/search_field.dart';
 import 'package:shop_app/screens/home/components/seasonal_product.dart';
+import 'package:shop_app/models/LoadCount.dart';
 
 import '../../../size_config.dart';
 import 'categories.dart';
@@ -16,7 +17,7 @@ import 'popular_product.dart';
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    if (load == 1) {
+    if (LOAD_ORDERS_ARR == 0) {
       CollectionReference usersFBase =
           FirebaseFirestore.instance.collection('users');
       CollectionReference ordersFBase =
@@ -42,7 +43,7 @@ class Body extends StatelessWidget {
                         })
                   },
               });
-      load = 0;
+      LOAD_ORDERS_ARR = 1;
     }
 
     return SafeArea(

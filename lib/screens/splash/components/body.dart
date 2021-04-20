@@ -35,7 +35,7 @@ class _BodyState extends State<Body> {
     },
   ];
 
-
+  //update here and the sign in form
   void setUserDeets(){
     userId = FirebaseAuth.instance.currentUser.uid;
 
@@ -46,6 +46,7 @@ class _BodyState extends State<Body> {
       userEmail = value.data()["email"],
       phoneNumber = value.data()["phone"],
       address = value.data()["location"],
+      subscriptionOrderMap = value.data()["subscription"]
     });
     getProductData();
   }

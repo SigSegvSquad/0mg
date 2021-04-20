@@ -25,7 +25,7 @@ class CheckoutState extends State<CheckoutCard> {
 
   @override
   Widget build(BuildContext context) {
-    widget.price = getCheckoutPrice();
+    widget.price = getCheckoutPrice(subscriptionCart);
     return Container(
       padding: EdgeInsets.symmetric(
         vertical: getProportionateScreenWidth(15),

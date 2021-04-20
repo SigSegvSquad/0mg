@@ -4,6 +4,8 @@ import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/constants.dart';
 import 'package:shop_app/models/Cart.dart';
 import 'package:shop_app/models/User.dart';
+import 'package:shop_app/models/Product.dart';
+import 'package:shop_app/models/LoadCount.dart';
 
 import '../../../size_config.dart';
 import 'cart_card.dart';
@@ -19,9 +21,16 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
 
+    if(LOAD_SUBSCRIPTION==0) {
+      subscriptionOrderMap.forEach((key, value) {
+        Product product = getProductById(key);
+        subscriptionCart.add(
+            new CartProduct(product: product, numOfItem: value));
+      });
+      LOAD_SUBSCRIPTION = 1;
+    }
 
-
-    widget.price = getCheckoutPrice();
+    widget.price = getCheckoutPrice(subscriptionCart);
     return Column(children: <Widget>[
       Expanded(
         child: Padding(
@@ -30,17 +39,18 @@ class _BodyState extends State<Body> {
           child: ListView.builder(
             scrollDirection: Axis.vertical,
             shrinkWrap: true,
-            itemCount: yourCart.length,
+            itemCount: subscriptionCart.length,
             itemBuilder: (context, index) => Padding(
               padding: EdgeInsets.symmetric(vertical: 10),
               child: Dismissible(
-                key: Key(yourCart[index].product.id.toString()),
+                key: Key(subscriptionCart[index].product.id.toString()),
                 direction: DismissDirection.endToStart,
                 onDismissed: (direction) {
                   setState(() {
-                    yourCart.removeAt(index);
+                    subscriptionCart.removeAt(index);
                     widget.price = 0;
                   });
+                  updateSubscription();
                 },
                 background: Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),
@@ -55,7 +65,7 @@ class _BodyState extends State<Body> {
                     ],
                   ),
                 ),
-                child: CartCard(cart: yourCart[index]),
+                child: CartCard(cart: subscriptionCart[index]),
               ),
             ),
           ),
@@ -128,7 +138,7 @@ class _BodyState extends State<Body> {
                     child: DefaultButton(
                       text: "Check Out",
                       press: () {
-                        placeOrder();
+                        placeOrder(subscriptionCart);
                       },
                     ),
                   ),

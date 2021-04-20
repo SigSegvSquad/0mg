@@ -24,7 +24,7 @@ class ColorDots extends StatefulWidget {
 class _ColorDots extends State<ColorDots> {
   @override
   Widget build(BuildContext context) {
-    widget.numItems = getNumItems(widget.product);
+    widget.numItems = getNumItems(widget.product, yourCart);
     if (!TutorialAdditionals.isTutorial) {
       return Padding(
         padding:
@@ -37,7 +37,7 @@ class _ColorDots extends State<ColorDots> {
             RoundedIconBtn(
               icon: Icons.remove,
               press: () {
-                removeFromCart(widget.product);
+                removeFromCart(widget.product, yourCart);
                 setState(() {
                   widget.numItems -= 1;
                 });
@@ -48,7 +48,7 @@ class _ColorDots extends State<ColorDots> {
               icon: Icons.add,
               showShadow: true,
               press: () {
-                addToCart(widget.product);
+                addToCart(widget.product, yourCart);
                 setState(() {
                   widget.numItems += 1;
                 });
@@ -69,7 +69,7 @@ class _ColorDots extends State<ColorDots> {
             RoundedIconBtn(
               icon: Icons.remove,
               press: () {
-                removeFromCart(widget.product);
+                removeFromCart(widget.product, yourCart);
                 setState(() {
                   widget.numItems -= 1;
                 });
@@ -81,7 +81,7 @@ class _ColorDots extends State<ColorDots> {
               icon: Icons.add,
               showShadow: true,
               press: () {
-                addToCart(widget.product);
+                addToCart(widget.product, yourCart);
                 setState(() {
                   widget.numItems += 1;
                 });

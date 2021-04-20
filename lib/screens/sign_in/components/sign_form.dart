@@ -28,17 +28,17 @@ class _SignFormState extends State<SignForm> {
   TextEditingController passwordController = new TextEditingController();
   TextEditingController emailController = new TextEditingController();
 
+  // update here and the splash screen
   void setUserDeets(){
     userId = FirebaseAuth.instance.currentUser.uid;
 
     CollectionReference users = FirebaseFirestore.instance.collection('users');
-
     users.doc(userId).get().then((value) => {
       username = value.data()["name"],
       userEmail = value.data()["email"],
       phoneNumber = value.data()["phone"],
       address = value.data()["location"],
-      subscription = value.data()["subscription"]
+      subscriptionOrderMap = value.data()["subscription"]
     });
     getProductData();
   }

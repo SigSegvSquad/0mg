@@ -21,7 +21,7 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     if(TutorialAdditionals.inCart)
       WidgetsBinding.instance.addPostFrameCallback((timeStamp) {inCart(context);});
-    widget.price = getCheckoutPrice();
+    widget.price = getCheckoutPrice(yourCart);
     return Column(children: <Widget>[
       Expanded(
         child: Padding(
@@ -128,7 +128,7 @@ class _BodyState extends State<Body> {
                     child: DefaultButton(
                       text: "Check Out",
                       press: () {
-                        placeOrder();
+                        placeOrder(yourCart);
                       },
                     ),
                   ),
