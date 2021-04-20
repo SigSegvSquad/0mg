@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/constants.dart';
 import 'package:shop_app/models/Cart.dart';
+import 'package:shop_app/models/User.dart';
 
 import '../../../size_config.dart';
 import 'cart_card.dart';
@@ -17,6 +18,9 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
+
+
+
     widget.price = getCheckoutPrice();
     return Column(children: <Widget>[
       Expanded(

@@ -11,6 +11,7 @@ class CartProduct {
 }
 
 List<CartProduct> yourCart = [];
+List<CartProduct> subscriptionCart = [];
 
 double getCheckoutPrice() {
   double priceTotal = 0;

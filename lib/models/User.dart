@@ -7,5 +7,6 @@ var address;
 var image;
 var phoneNumber;
 var ordersArr = [];
+var subscription;
 var load = 1;
 List<OrderDetails> myOrders = [];

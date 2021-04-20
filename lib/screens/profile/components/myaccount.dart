@@ -39,93 +39,109 @@ class MyAccount extends StatelessWidget {
         ),
         body: Center(
             child: Column(
-          children: [
-            displayPic(),
-            SizedBox(height: 20),
-            Row(
               children: [
-                Container(
-                  child: Text(
-                    "Name",
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
-                  padding: EdgeInsets.all(20.0),
+                DisplayPic(),
+                SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      child: Text(
+                        "Name",
+                        style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                      ),
+                      padding: EdgeInsets.all(20.0),
+                    ),
+                    Container(
+                      child: Text(
+                        username,
+                        style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                      ),
+                      padding: EdgeInsets.all(20.0),
+                    ),
+                    Spacer(),
+                    Container(
+                      alignment: Alignment.centerRight,
+                      padding: EdgeInsets.all(10),
+                      child: ElevatedButton(
+                        child: Icon(Icons.create),
+                        onPressed: () {
+                          showDialog(
+                              context: context,
+                              builder: (context) => Update_name());
+                        },
+                      ),
+                    ),
+                  ],
                 ),
-                Container(
-                  child: Text(
-                    username,
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
-                  padding: EdgeInsets.all(20.0),
-                  width: 250,
+                SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      child: Text(
+                        "Phone",
+                        style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                      ),
+                      padding: EdgeInsets.all(20.0),
+                    ),
+                    Container(
+                      child: Text(
+                        phoneNumber,
+                        style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                      ),
+                      padding: EdgeInsets.all(20.0),
+                    ),
+                    Spacer(),
+                    Container(
+                      alignment: Alignment.centerRight,
+                      padding: EdgeInsets.all(10),
+                      child: ElevatedButton(
+                        child: Icon(Icons.create),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Update_phone()));
+                        },
+                      ),
+                    ),
+                  ],
                 ),
-                ElevatedButton(
-                  child: Icon(Icons.create),
-                  onPressed: () {
-                    showDialog(
-                        context: context, builder: (context) => Update_name());
-                  },
-                )
+                SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      child: Text(
+                        "Address",
+                        style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                      ),
+                      padding: EdgeInsets.all(20.0),
+                    ),
+                    Container(
+                      child: Text(
+                        address,
+                        style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Spacer(),
+                    Container(
+                      alignment: Alignment.centerRight,
+                      padding: EdgeInsets.all(10),
+                      child: ElevatedButton(
+                        child: Icon(Icons.create),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Update_location()));
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ],
-            ),
-            SizedBox(height: 20),
-            Row(
-              children: [
-                Container(
-                  child: Text(
-                    "Phone",
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
-                  padding: EdgeInsets.all(20.0),
-                ),
-                Container(
-                  child: Text(
-                    phoneNumber,
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
-                  padding: EdgeInsets.all(20.0),
-                  width: 250,
-                ),
-                ElevatedButton(
-                  child: Icon(Icons.create),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Update_phone()));
-                  },
-                )
-              ],
-            ),
-            SizedBox(height: 20),
-            Row(
-              children: [
-                Container(
-                  child: Text(
-                    "Address",
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
-                  padding: EdgeInsets.all(20.0),
-                ),
-                Container(
-                  child: Text(
-                    address,
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
-                  width: 230,
-                ),
-                ElevatedButton(
-                  child: Icon(Icons.create),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Update_location()));
-                  },
-                )
-              ],
-            ),
-          ],
-        )));
+            )));
   }
 }

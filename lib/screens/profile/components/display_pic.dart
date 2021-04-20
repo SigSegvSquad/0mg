@@ -8,12 +8,12 @@ import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shop_app/models/User.dart';
 
-class displayPic extends StatefulWidget {
+class DisplayPic extends StatefulWidget {
   @override
-  _displayPicState createState() => _displayPicState();
+  _DisplayPicState createState() => _DisplayPicState();
 }
 
-class _displayPicState extends State<displayPic> {
+class _DisplayPicState extends State<DisplayPic> {
   CollectionReference users = FirebaseFirestore.instance.collection('users');
 
   Future<void> updateimage(@required imageUrl){

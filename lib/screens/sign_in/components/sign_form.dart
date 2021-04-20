@@ -38,7 +38,7 @@ class _SignFormState extends State<SignForm> {
       userEmail = value.data()["email"],
       phoneNumber = value.data()["phone"],
       address = value.data()["location"],
-      print(username+email+address+phoneNumber)
+      subscription = value.data()["subscription"]
     });
     getProductData();
   }
