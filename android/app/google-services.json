@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "143609975727-5dgmnsbqs22ekoi5q6gc1kv6u0nk3tm5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sigsegvsquad.e_pharma_store",
+            "certificate_hash": "eccad750e9c9e8b555516e7680317376419c9ca6"
+          }
+        },
+        {
           "client_id": "143609975727-cg74rks64fl6jscvk2vhkuvnce7jujqu.apps.googleusercontent.com",
           "client_type": 3
         }
