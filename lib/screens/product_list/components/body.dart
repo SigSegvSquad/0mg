@@ -48,5 +48,7 @@ List<Product> getList(String category) {
     return surgeryProductList;
   } else if (category == "Other") {
     return otherProductList;
+  } else if (category == "Ayurveda") {
+    return ayurvedaProductList;
   }
 }

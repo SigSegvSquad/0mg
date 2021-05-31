@@ -1,3 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/custom_surfix_icon.dart';
 import 'package:shop_app/components/default_button.dart';
@@ -16,7 +19,9 @@ class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
   String email;
   String password;
-  String conform_password;
+
+  // ignore: non_constant_identifier_names
+  String confirm_password;
   bool remember = false;
   final List<String> errors = [];
 
@@ -52,6 +57,14 @@ class _SignUpFormState extends State<SignUpForm> {
             press: () {
               if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
+                FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
+                CollectionReference users = FirebaseFirestore.instance.collection('users');
+                users.doc(FirebaseAuth.instance.currentUser.uid).set({
+                  "name": Text("Prit"),
+                  "phone": Text("9876543210"),
+                  "location": Text("Pune")
+                }).then((value) => print("User Added"))
+                    .catchError((error) => print("Failed to add user: $error"));
                 // if all are valid then go to success screen
                 Navigator.pushNamed(context, CompleteProfileScreen.routeName);
               }
@@ -65,14 +78,14 @@ class _SignUpFormState extends State<SignUpForm> {
   TextFormField buildConformPassFormField() {
     return TextFormField(
       obscureText: true,
-      onSaved: (newValue) => conform_password = newValue,
+      onSaved: (newValue) => confirm_password = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kPassNullError);
-        } else if (value.isNotEmpty && password == conform_password) {
+        } else if (value.isNotEmpty && password == confirm_password) {
           removeError(error: kMatchPassError);
         }
-        conform_password = value;
+        confirm_password = value;
       },
       validator: (value) {
         if (value.isEmpty) {

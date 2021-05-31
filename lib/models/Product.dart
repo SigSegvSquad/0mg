@@ -28,6 +28,7 @@ List<Product> lifestyleProductList = [];
 List<Product> tabletProductList = [];
 List<Product> surgeryProductList = [];
 List<Product> otherProductList = [];
+List<Product> ayurvedaProductList = [];
 
 Product getProductById(String id){
   for(var i=0;i<allProducts.length;i++){
@@ -36,6 +37,9 @@ Product getProductById(String id){
   }
   return null;
 }
+
+
+
 
 void getProductData() {
   FirebaseFirestore.instance
@@ -72,9 +76,12 @@ void getProductData() {
                 surgeryProductList.add(product);
               } else if (doc["category"] == "other") {
                 otherProductList.add(product);
+              } else if (doc["category"] == "Ayurveda") {
+                ayurvedaProductList.add(product);
               }
             })
           });
+
 }
 
 List<Product> demoProducts = [
