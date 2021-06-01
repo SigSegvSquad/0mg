@@ -1,8 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/custom_surfix_icon.dart';
 import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/components/form_error.dart';
-import 'package:shop_app/screens/otp/otp_screen.dart';
+import 'package:shop_app/screens/home/home_screen.dart';
+import 'package:shop_app/screens/sign_in/components/body.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
@@ -52,14 +55,34 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
           DefaultButton(
             text: "continue",
             press: () {
+              print(firstName);
+              print("\nend\n");
               if (_formKey.currentState.validate()) {
-                Navigator.pushNamed(context, OtpScreen.routeName);
+                addUserDetails(firstName, lastName, phoneNumber, address);
               }
             },
           ),
         ],
       ),
     );
+  }
+
+  void addUserDetails(String firstName, String lastName, String phoneNumber,
+      String address) async {
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser.uid)
+        .update({
+          'name': firstName,
+          "phone": phoneNumber,
+          "location": address,
+          "orderIds": {}
+        })
+        .then((value) => print("User Updated"))
+        .catchError((error) => print("Failed to update user: $error"))
+        .then((value) => setUserDeets())
+        .then((value) =>
+        Navigator.pushNamed(context, HomeScreen.routeName));
   }
 
   TextFormField buildAddressFormField() {
@@ -69,7 +92,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         if (value.isNotEmpty) {
           removeError(error: kAddressNullError);
         }
-        return null;
+        address = value;
       },
       validator: (value) {
         if (value.isEmpty) {
@@ -98,7 +121,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         if (value.isNotEmpty) {
           removeError(error: kPhoneNumberNullError);
         }
-        return null;
+        phoneNumber = value;
       },
       validator: (value) {
         if (value.isEmpty) {
@@ -139,7 +162,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         if (value.isNotEmpty) {
           removeError(error: kNamelNullError);
         }
-        return null;
+        firstName = value;
       },
       validator: (value) {
         if (value.isEmpty) {

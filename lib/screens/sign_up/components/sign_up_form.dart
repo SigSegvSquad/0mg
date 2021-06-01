@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/custom_surfix_icon.dart';
 import 'package:shop_app/components/default_button.dart';
@@ -52,14 +54,30 @@ class _SignUpFormState extends State<SignUpForm> {
             press: () {
               if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
-                // if all are valid then go to success screen
-                Navigator.pushNamed(context, CompleteProfileScreen.routeName);
+                signUp(email, password);
               }
             },
           ),
         ],
       ),
     );
+  }
+
+  void signUp(String email, String password) async {
+    final FirebaseAuth auth = FirebaseAuth.instance;
+
+    UserCredential userCredential = await auth.createUserWithEmailAndPassword(
+        email: email, password: password);
+
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser.uid)
+        .set({
+          'email': email,
+        })
+        .then((value) => print("User Updated"))
+        .catchError((error) => print("Failed to update user: $error")).then((value) =>
+        Navigator.pushNamed(context, CompleteProfileScreen.routeName));
   }
 
   TextFormField buildConformPassFormField() {
@@ -87,8 +105,6 @@ class _SignUpFormState extends State<SignUpForm> {
       decoration: InputDecoration(
         labelText: "Confirm Password",
         hintText: "Re-enter your password",
-        // If  you are using latest version of flutter then lable text and hint text shown like this
-        // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
       ),
