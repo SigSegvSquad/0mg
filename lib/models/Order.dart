@@ -40,6 +40,7 @@ class Order{
       'amount':price,
       'date':date,
       'userDetails': userDetails,
+      'timestamp': DateTime.now().millisecondsSinceEpoch,
       'orderStatus': 'pending approval'
     }).
     then((value) =>{

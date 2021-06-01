@@ -38,15 +38,17 @@ class _BodyState extends State<Body> {
 }
 
 List<Product> getList(String category) {
-  if (category == "Lifestyle") {
+  if (category.toLowerCase() == "lifestyle") {
     return lifestyleProductList;
-  } else if (category == "General") {
+  } else if (category.toLowerCase() == "general") {
     return tabletProductList;
-  } else if (category == "Supplements") {
+  } else if (category.toLowerCase() == "supplements") {
     return supplementProductList;
-  } else if (category == "Surgery") {
+  } else if (category.toLowerCase() == "surgery") {
     return surgeryProductList;
-  } else if (category == "Other") {
+  } else if (category.toLowerCase() == "ayurveda") {
+    return ayurvedaProductList;
+  }else if (category.toLowerCase() == "other") {
     return otherProductList;
   }
 }

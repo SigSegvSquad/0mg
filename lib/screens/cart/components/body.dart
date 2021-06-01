@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/constants.dart';
 import 'package:shop_app/tutorial/tutorialAdditionals.dart';
@@ -129,6 +130,15 @@ class _BodyState extends State<Body> {
                       text: "Check Out",
                       press: () {
                         placeOrder(yourCart);
+                        Fluttertoast.showToast(
+                            msg: 'Order placed!',
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.TOP,
+                            timeInSecForIos: 1,
+                            backgroundColor: Colors.black,
+                            textColor: Colors.white
+                        );
+                        Navigator.pop(context);
                       },
                     ),
                   ),

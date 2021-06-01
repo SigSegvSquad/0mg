@@ -33,7 +33,7 @@ double getCheckoutPrice(List<CartProduct> yourCart) {
   for (var i = 0; i < yourCart.length; i++) {
     priceTotal += yourCart[i].numOfItem * yourCart[i].product.price;
   }
-  return priceTotal;
+  return priceTotal.toInt().toDouble();
 }
 
 void placeOrder(List<CartProduct> yourCart) {

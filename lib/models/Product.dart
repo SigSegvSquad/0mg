@@ -27,6 +27,7 @@ List<Product> supplementProductList = [];
 List<Product> lifestyleProductList = [];
 List<Product> tabletProductList = [];
 List<Product> surgeryProductList = [];
+List<Product> ayurvedaProductList = [];
 List<Product> otherProductList = [];
 
 Product getProductById(String id){
@@ -62,6 +63,8 @@ void getProductData() {
                 isPopular: true,
               );
               allProducts.add(product);
+              print("\n");
+              print(product.title+"\n");
               if (doc["category"] == "lifestyle") {
                 lifestyleProductList.add(product);
               } else if (doc["category"] == "tablet") {
@@ -70,11 +73,15 @@ void getProductData() {
                 supplementProductList.add(product);
               } else if (doc["category"] == "surgery") {
                 surgeryProductList.add(product);
-              } else if (doc["category"] == "other") {
+              } else if (doc["category"] == "ayurveda") {
+              ayurvedaProductList.add(product);
+              }
+              else if (doc["category"] == "other") {
                 otherProductList.add(product);
               }
             })
           });
+
 }
 
 List<Product> demoProducts = [

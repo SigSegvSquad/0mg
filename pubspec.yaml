@@ -33,6 +33,7 @@ dependencies:
   cloud_firestore: "^0.16.0"
   highlighter_coachmark: ^0.0.3
   flutter_svg: ^0.20.0-nullsafety.3
+  fluttertoast: ^3.1.0
   firebase_storage:
   image_picker:
   permission_handler:
